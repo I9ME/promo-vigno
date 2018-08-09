@@ -41,6 +41,8 @@
 		height:0px;
 		&-content{
 			&:before{
+				/* position: absolute;
+				z-index: -1; */
 				display: table;
 				content: "";
 				padding-top: 100%;

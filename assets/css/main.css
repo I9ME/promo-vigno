@@ -30,7 +30,7 @@ Escrita de CSS baseada em SUIT CSS - https://github.com/suitcss/suit
 }
 
 .color_7 {
-  background: #BBBBBB;
+  background: #CCCCCC;
 }
 
 .color_8 {
@@ -222,12 +222,6 @@ a {
 
 .u-zIndex100 {
   z-index: 100;
-}
-
-.Button--border.hover:hover {
-  background: #b8252b;
-  border-color: #b8252b;
-  color: #6e1b1d;
 }
 
 .Section-header-title {
@@ -615,7 +609,7 @@ a {
   display: inline-block;
   position: relative;
   padding: 5px 5px;
-  border: 1px solid #BBBBBB;
+  border: 1px solid #CCCCCC;
   border-radius: 50px;
 }
 
@@ -638,7 +632,7 @@ a {
 }
 
 .Section .Section-table-tbody-item.check span {
-  background: #BBBBBB;
+  background: #CCCCCC;
 }
 
 .Section .Section-table-tbody-item.check span i {
@@ -773,8 +767,8 @@ a {
 }
 
 .Section--style1 .navController--tabs {
-  background-color: #BBBBBB;
-  border-color: #BBBBBB;
+  background-color: #CCCCCC;
+  border-color: #CCCCCC;
   color: #6e1b1d;
 }
 
@@ -1197,6 +1191,9 @@ a {
 }
 
 @media screen and (min-width: 768px) {
+  .Section--intro .Captions {
+    padding-top: 0px !important;
+  }
   .Section--intro .Captions .Form-coll.Submit:hover .Form-input--bg {
     opacity: 0;
   }
@@ -1404,6 +1401,37 @@ a {
   padding-left: 10px;
 }
 
+.Section--loginCadastro {
+  margin-top: 50%;
+}
+
+.Section--loginCadastro .Section-subSection-header-title {
+  font-size: 18px;
+}
+
+.Section--loginCadastro .Section-subSection-header-title em {
+  font-size: 24px;
+}
+
+@media screen and (min-width: 768px) {
+  .Section--loginCadastro {
+    margin-top: 0px;
+  }
+  .Section--loginCadastro .Section-subSection.right {
+    /* &:before{
+							position: absolute;
+							display: block;
+							left: 0px;
+							top: 50%;
+							width: 1px;
+							height: 100%;
+							content: "";
+							background: $color_7;
+							transform: translateY(-50%);							
+						} */
+  }
+}
+
 .Site-header {
   height: 100px;
 }
@@ -1470,7 +1498,7 @@ a {
 }
 
 .Breadcrumbs {
-  border-bottom: 1px solid #f5f5f5;
+  border-bottom: 1px solid #CCCCCC;
   font-size: 13px;
 }
 
@@ -1593,7 +1621,7 @@ a {
 }
 
 .SiteMain-main .Article--promocoes .Section--texts .Section-subSection--regras {
-  border-bottom: 1px solid #BBBBBB;
+  border-bottom: 1px solid #CCCCCC;
 }
 
 @media screen and (min-width: 768px) {
@@ -1616,7 +1644,7 @@ a {
     color: #44752f;
   }
   .SiteMain-main .Article--promocoes .Section--dataBar {
-    border-bottom: 1px solid #000000;
+    border-bottom: 1px solid #CCCCCC;
   }
   .SiteMain-main .Article--promocoes .Section--dataBar .Section-items {
     margin-top: 0px;
@@ -2031,9 +2059,19 @@ a {
   border-style: solid;
 }
 
+.Button--border.style1 {
+  border-color: #6e1b1d;
+  color: #6e1b1d;
+  background: none;
+}
+
+.Button--border.style1.hover:hover {
+  background: #6e1b1d;
+  color: #FFFFFF;
+}
+
 .Button--largeSize {
   padding: 15px 30px;
-  min-height: 66px;
 }
 
 .Button--largeSize.u-hasIcon {
@@ -2047,7 +2085,7 @@ a {
 
 .Button--mediumSize {
   padding: 10px 20px;
-  min-height: 50px;
+  font-size: 13px;
 }
 
 .Button--mediumSize.u-hasIcon {
@@ -2061,7 +2099,6 @@ a {
 
 .Button--smallSize {
   padding: 5px 10px;
-  min-height: 30px;
   font-size: 14px;
 }
 
@@ -2072,6 +2109,31 @@ a {
 .Button--smallSize .u-icon {
   font-size: 20px;
   line-height: 20px;
+}
+
+.Button--responsiveSize {
+  padding: 15px;
+  font-size: 13px;
+  height: auto;
+  width: auto;
+}
+
+.Button--responsiveSize i {
+  min-width: 20px;
+  min-height: 20px;
+}
+
+.Button--responsiveSize .u-icon {
+  font-size: 20px;
+  line-height: 20px;
+  min-width: 20px;
+  min-height: 20px;
+}
+
+@media screen and (min-width: 960px) {
+  .Button--responsiveSize {
+    padding: 10px 20px;
+  }
 }
 
 .u-positionAbsolute {
@@ -3249,7 +3311,7 @@ th.u-isShown {
 
 @media screen and (min-width: 960px) {
   .u-isCollapsed .NavigationButton-icon.is-animating--rotate {
-    transform: rotate(90deg) !important;
+    transform: rotate(0deg) !important;
   }
   .u-isCollapsed.Navigation--subMenu {
     height: auto !important;
@@ -3839,7 +3901,7 @@ th.u-isShown {
 }
 
 .Navigation--menu--style2 .Navigation-items .Navigation--subMenu {
-  background: #BBBBBB;
+  background: #CCCCCC;
 }
 
 .Navigation--menu--style2 .Navigation-items .Navigation--subMenu-title {
@@ -6716,6 +6778,8 @@ input[type="submit"] {
 }
 
 .Lightbox-window-content:before {
+  /* position: absolute;
+				z-index: -1; */
   display: table;
   content: "";
   padding-top: 100%;

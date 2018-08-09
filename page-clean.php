@@ -13,11 +13,6 @@
 //get_header();
 ?>
 
-
-
-<script src="https://cdn.rawgit.com/MrRio/jsPDF/master/dist/jspdf.min.js"></script>
-<script type="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
-
 <div class="Page Page--cupom u-paddingTop--inter--half u-absoluteTopLeft u-sizeFull">
 
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post();

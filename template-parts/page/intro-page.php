@@ -28,7 +28,7 @@
 
 <section class="Section--intro Intro Intro--page u-positionRelative u-flex u-flexDirectionColumn u-flexAlignItemsCenter u-flexJustifyContentCenter u-paddingVertical" data-paroller-factor="-0.50" data-paroller-type="background" data-paroller-direction="vertical">
 
-	<div class="Captions u-positionRelative u-marginHorizontal--inter u-zIndex2 u-displayFlex u-flexJustifyContentCenter u-size9of24 u-flexDirectionColumn u-flexAlignItemsCenter u-zIndex3">	
+	<div class="Captions u-positionRelative u-paddingTop u-marginTop u-marginBottom--inter u-zIndex2 u-displayFlex u-flexJustifyContentCenter u-size9of24 u-flexDirectionColumn u-flexAlignItemsCenter u-zIndex3">	
 		<figure class="ArabescoTop--intro"></figure>
 			<h1 class="Captions-title u-alignCenter">
 				<span class="Captions-title--line1 u-displayBlock u-sizeFull">Conheça as <strong>promoções</strong> da</span>

@@ -6,7 +6,6 @@
 			</svg>
 		</i>
 		<div class="Lightbox-window-content u-sizeFull u-overflowYauto u-positionRelative u-displayBlock">
-			<!-- <iframe src="<?php // echo get_home_url(); ?>/cupom-gerado/" width="100%" height="100%" style="border: none;"></iframe> -->
 		</div>
 	</div>
 	<div class="Lightbox-mask LightboxClose is-animating u-positionAbsolute u-displayBlock u-sizeFull u-sizeHeight100"></div>

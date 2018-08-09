@@ -27,15 +27,42 @@
 
 <body <?php body_class(); ?>>
 
+<?php 
+if( is_user_logged_in() ) {
 
+		$link_cta = get_home_url() . '/member-account/';
+		$label = 'MINHA CONTA';
+	
+	} else {
+		$link_cta = 'javascript:LightboxCall(\'' . get_home_url() . '/user-components?component=login_cadastro&url=' . get_permalink() . '\');';
+		$label = 'LOGIN / CADASTRO';
+	}
+ ?>
 	
 <div id="page" class="Site">
 
 	
 	 <header id="masthead" class="Site-header u-alignCenter u-positionAbsolute u-sizeFull u-displayFlex u-flexJustifyContentCenter is-animating u-zIndex20">
 
-	 	<div class="loginBar u-displayBlock u-absoluteTopRight u-paddingRight u-paddingTop--inter">
-			<a class="u-positionRelative u-displayFlex Button Button--border Button--mediumSize" href="#">LOGIN</a>
+	 	<div class="loginBar u-displayBlock u-absoluteTopRight u-paddingRight u-paddingTop--inter u-displayFlex u-flexDirectionRow">
+			<a id="LoginNavigation" class="u-positionRelative u-displayFlex Button Button--border u-borderRadius50 is-animating hover style1 Button--responsiveSize u-flexAlignItemsCenter e-Toglle is-animating u-positionRelative u-isCollapsed u-hasIcon u-contentHide--button" href="<?php echo $link_cta; ?>">
+				<i class="u-inlineFlex u-positionRelative">
+					<svg class="iconUser NavigationButton-icon u-icon is-animating">
+						<use xlink:href="#iconUser"></use>
+					</svg>	
+				</i>
+			<span class="u-onlyDesktop u-marginLeft--inter--half--px"><?php echo $label; ?></span>
+			</a>
+			<?php if( is_user_logged_in() ) { ?>
+			<a id="LoginNavigation" class="u-positionRelative u-displayFlex u-marginLeft--inter--half--px Button Button--border u-borderRadius50 is-animating hover style1 Button--responsiveSize u-flexAlignItemsCenter e-Toglle is-animating u-positionRelative u-isCollapsed u-hasIcon u-contentHide--button" href="<?php echo get_home_url(); ?>/wp-login.php?action=logout">
+				<i class="u-inlineFlex u-positionRelative">
+					<svg class="iconClose NavigationButton-icon u-icon is-animating">
+						<use xlink:href="#iconClose"></use>
+					</svg>	
+				</i>
+			<span class="u-onlyDesktop u-marginLeft--inter--half--px">SAIR</span>
+			</a>
+			<?php } ?>
 		</div>
 		
 		<!-- <div class="Site-header-branding u-displayInlineBlock u-positionRelative u-alignCenter"> 

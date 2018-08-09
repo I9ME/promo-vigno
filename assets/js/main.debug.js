@@ -13,7 +13,7 @@ function LightboxClose() {
   //alert( "clicked" );
    $('#Lightbox--container').removeClass('Lightbox--active');
    $('#Lightbox--container').addClass('Lightbox--inactive');
-   $('.Lightbox-window-content').html( '' );
+   $('.Lightbox-window-content').html();
 }
 
 $( ".LightboxClose" ).on( "click", LightboxClose );
@@ -54,11 +54,11 @@ $( ".LightboxClose" ).on( "click", LightboxClose );
 
 
 // Abre o Lightbox
-function LightboxCall(iFrame) {
+function LightboxCall(component) {
   //alert( "clicked" );
   jQuery('#Lightbox--container').removeClass('Lightbox--inactive');
   jQuery('#Lightbox--container').addClass('Lightbox--active');
-  jQuery('.Lightbox-window-content').load( iFrame );
+  jQuery('.Lightbox-window-content').load( component );
 }
 //$( ".LightboxCall" ).on( "click", LightboxCall );
 

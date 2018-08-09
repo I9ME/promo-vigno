@@ -17,6 +17,7 @@
 		background-position: center top;
 		background-size: 135%;
 	}
+
 }
 
 .widecolumn,
@@ -77,7 +78,7 @@
 
 .Breadcrumbs{
 	//border-top: 1px solid $color_8;
-	border-bottom: 1px solid $color_8;
+	border-bottom: 1px solid $color_7;
 	font-size: 13px;
 	& a{
 		font-weight: bold;
@@ -286,7 +287,7 @@
 						}
 
 						&--dataBar{
-							border-bottom: 1px solid $color_11;
+							border-bottom: 1px solid $color_7;
 							& .Section{
 								&-items{
 									margin-top: 0px;

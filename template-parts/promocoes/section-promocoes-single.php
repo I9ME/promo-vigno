@@ -98,6 +98,14 @@
 				} else {
 				$urlThumbnail = get_template_directory_uri() . '/assets/images/lessThumbnail.png';
 				}
+
+				if( is_user_logged_in() ) {
+
+					$link_cta = 'javascript:LightboxCall(\'' . get_home_url() . '/cupom-gerado/' . get_the_ID() . '/\');';
+				
+				} else {
+					$link_cta = 'javascript:LightboxCall(\'' . get_home_url() . '/user-components?component=login_cadastro&url=' . get_permalink() . '\');';
+				}
 			 ?>
 
 			 <img class="u-maxSize100 u-minWith100" src="<?php echo $urlThumbnail ?>" alt="<?php echo get_the_title(); ?>">
@@ -113,7 +121,7 @@
 			</div>
 
 			<div class="Section-subSection Section-subSection--cta u-displayFlex u-flexDirectionRow u-flexAlignItemsCenter u-flexJustifyContentCenter u-marginHorizontal--inter--half u-marginVertical--inter--px u-flexJustifyContentCenter">
-				<a class="Button Button--largeSize Button--border hover is-animating Button--background u-borderRadius5 u-alignCenter u-displayFlex u-flexAlignItemsCenter" href="javascript:LightboxCall('<?php echo get_home_url(); ?>/cupom-gerado/<?php echo get_the_ID(); ?>/');">
+				<a class="Button Button--largeSize Button--border hover is-animating Button--background u-borderRadius5 u-alignCenter u-displayFlex u-flexAlignItemsCenter" href="<?php echo $link_cta; ?>">
 					GERAR CUPOM GRATUITAMENTE
 				</a>
 			</div>

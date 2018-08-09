@@ -199,7 +199,8 @@ th.u-isShown {
     & .NavigationButton-icon{
     &.is-animating{
       &--rotate{
-        transform: rotate(90deg) !important;
+        transform: rotate(0deg) !important;
+        //margin: 0 5px;
       }
     }
     

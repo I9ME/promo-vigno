@@ -5,11 +5,21 @@
 	&--border{
 		border-width:2px;
 		border-style: solid;
+		&.style1{
+			border-color: $color_2;
+			color: $color_2;
+			background: none;
+			&.hover{
+				&:hover{
+					background: $color_2;
+					color: $color_1;
+				}
+			}
+		}
 	}
 	
 	&--largeSize{
 		padding: 15px 30px;
-		min-height: 66px;
 		&.u-hasIcon{
 			padding-left: 37px !important;
 		}
@@ -21,7 +31,7 @@
 
 	&--mediumSize{
 		padding: 10px 20px;
-		min-height: $sizeColumns_px;
+		font-size: 13px;
 		&.u-hasIcon{
 			padding-left: 27px !important;
 		}
@@ -33,7 +43,6 @@
 
 	&--smallSize{
 		padding: 5px 10px;
-		min-height: 30px;
 		font-size: 14px;
 		&.u-hasIcon{
 			padding-left: 17px !important;
@@ -41,6 +50,29 @@
 		& .u-icon{
 			font-size: 20px;
 			line-height: 20px;
+		}
+	}
+
+	&--responsiveSize{
+		padding: 15px;
+		font-size: 13px;
+		height: auto;
+		width: auto;
+		&.u-hasIcon{
+			
+		}
+		& i{
+			min-width: 20px;
+			min-height: 20px;
+		}
+		& .u-icon{
+			font-size: 20px;
+			line-height: 20px;
+			min-width: 20px;
+			min-height: 20px;
+		}
+		@media screen and (min-width: $break-md){
+			padding: 10px 20px;
 		}
 	}
 
