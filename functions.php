@@ -14,11 +14,10 @@
  * Funções e Configurações do Tema
  */
 
-$skeleton_version = '1.7';
 
 
 function skeleton_setup() {
-	load_theme_textdomain( 'lpvigno' );
+	load_theme_textdomain( 'cupons-promocoes' );
 
 
 
@@ -63,33 +62,30 @@ add_action( 'after_setup_theme', 'skeleton_setup' );
 
 
 
+
+
 /**
  * Enqueue scripts and styles.
  */
 function skeleton_scripts() {
 
-	$skeleton_version = '1.0';
-
 	// Add custom fonts, used in the main stylesheet.
 
 	// Theme stylesheet.
-	wp_enqueue_style('css-main', get_template_directory_uri() . '/assets/css/main.min.css', array(), $skeleton_version, 'all');
-	wp_enqueue_script( 'js-main', get_template_directory_uri() . '/assets/js/main.min.js', array(), $skeleton_version, true );
+	wp_enqueue_style('css-main', get_template_directory_uri() . '/assets/css/main.min.css', array(), null);
+
+
+	wp_enqueue_script( 'js-main', get_theme_file_uri( '/assets/js/jquery-3.2.1.js' ), array(), null );
+
+	wp_enqueue_script( 'js-jquery', get_theme_file_uri( '/assets/js/main.min.js' ), array(), null );
+
+	//wp_enqueue_script( 'js-stellar', get_theme_file_uri( '/assets/js/stellar.min.js' ), array(), null );
+	//wp_enqueue_script( 'js-stellar', get_theme_file_uri( '/assets/js/jquery.paroller.min.js' ), array(), null );
+
 	
-	
+   
 
-
-?>
-
-<?php
-
-}
-add_action( 'wp_enqueue_scripts', 'skeleton_scripts' );
-
-
-
-// Add scripts to wp_footer()
-function theme_footer_script() {
+    wp_enqueue_script('main');
 
 
 //SVG
@@ -116,8 +112,36 @@ echo'<svg style="position: absolute; width: 0; height: 0; overflow: hidden;" ver
 <symbol id="iconTwitter" viewBox="0 0 26 28">
 <path d="M25.312 6.375c-0.688 1-1.547 1.891-2.531 2.609 0.016 0.219 0.016 0.438 0.016 0.656 0 6.672-5.078 14.359-14.359 14.359-2.859 0-5.516-0.828-7.75-2.266 0.406 0.047 0.797 0.063 1.219 0.063 2.359 0 4.531-0.797 6.266-2.156-2.219-0.047-4.078-1.5-4.719-3.5 0.313 0.047 0.625 0.078 0.953 0.078 0.453 0 0.906-0.063 1.328-0.172-2.312-0.469-4.047-2.5-4.047-4.953v-0.063c0.672 0.375 1.453 0.609 2.281 0.641-1.359-0.906-2.25-2.453-2.25-4.203 0-0.938 0.25-1.797 0.688-2.547 2.484 3.062 6.219 5.063 10.406 5.281-0.078-0.375-0.125-0.766-0.125-1.156 0-2.781 2.25-5.047 5.047-5.047 1.453 0 2.766 0.609 3.687 1.594 1.141-0.219 2.234-0.641 3.203-1.219-0.375 1.172-1.172 2.156-2.219 2.781 1.016-0.109 2-0.391 2.906-0.781z"></path>
 </symbol>
+<symbol id="iconArrowLeft" viewBox="0 0 24 24">
+<path d="M15.422 16.078l-1.406 1.406-6-6 6-6 1.406 1.406-4.594 4.594z"></path>
+</symbol>
+<symbol id="iconArrowDown" viewBox="0 0 24 24">
+<path d="M7.406 7.828l4.594 4.594 4.594-4.594 1.406 1.406-6 6-6-6z"></path>
+</symbol>
+<symbol id="iconArrowRight" viewBox="0 0 24 24">
+<path d="M8.578 16.359l4.594-4.594-4.594-4.594 1.406-1.406 6 6-6 6z"></path>
+</symbol>
+<symbol id="iconArrowUp" viewBox="0 0 24 24">
+<path d="M7.406 15.422l-1.406-1.406 6-6 6 6-1.406 1.406-4.594-4.594z"></path>
+</symbol>
+<symbol id="iconMore" viewBox="0 0 24 24">
+<path d="M18.984 12.984h-6v6h-1.969v-6h-6v-1.969h6v-6h1.969v6h6v1.969z"></path>
+</symbol>
+<symbol id="iconCheck" viewBox="0 0 28 28">
+<path d="M26.109 8.844c0 0.391-0.156 0.781-0.438 1.062l-13.438 13.438c-0.281 0.281-0.672 0.438-1.062 0.438s-0.781-0.156-1.062-0.438l-7.781-7.781c-0.281-0.281-0.438-0.672-0.438-1.062s0.156-0.781 0.438-1.062l2.125-2.125c0.281-0.281 0.672-0.438 1.062-0.438s0.781 0.156 1.062 0.438l4.594 4.609 10.25-10.266c0.281-0.281 0.672-0.438 1.062-0.438s0.781 0.156 1.062 0.438l2.125 2.125c0.281 0.281 0.438 0.672 0.438 1.062z"></path>
+</symbol>
+<symbol id="iconSearch" viewBox="0 0 26 28">
+<path d="M18 13c0-3.859-3.141-7-7-7s-7 3.141-7 7 3.141 7 7 7 7-3.141 7-7zM26 26c0 1.094-0.906 2-2 2-0.531 0-1.047-0.219-1.406-0.594l-5.359-5.344c-1.828 1.266-4.016 1.937-6.234 1.937-6.078 0-11-4.922-11-11s4.922-11 11-11 11 4.922 11 11c0 2.219-0.672 4.406-1.937 6.234l5.359 5.359c0.359 0.359 0.578 0.875 0.578 1.406z"></path>
+</symbol>
 <symbol id="iconEnvelope" viewBox="0 0 28 28">
 <path d="M28 11.094v12.406c0 1.375-1.125 2.5-2.5 2.5h-23c-1.375 0-2.5-1.125-2.5-2.5v-12.406c0.469 0.516 1 0.969 1.578 1.359 2.594 1.766 5.219 3.531 7.766 5.391 1.313 0.969 2.938 2.156 4.641 2.156h0.031c1.703 0 3.328-1.188 4.641-2.156 2.547-1.844 5.172-3.625 7.781-5.391 0.562-0.391 1.094-0.844 1.563-1.359zM28 6.5c0 1.75-1.297 3.328-2.672 4.281-2.438 1.687-4.891 3.375-7.313 5.078-1.016 0.703-2.734 2.141-4 2.141h-0.031c-1.266 0-2.984-1.437-4-2.141-2.422-1.703-4.875-3.391-7.297-5.078-1.109-0.75-2.688-2.516-2.688-3.938 0-1.531 0.828-2.844 2.5-2.844h23c1.359 0 2.5 1.125 2.5 2.5z"></path>
+</symbol>
+<symbol id="iconArrowDropDownCircle" viewBox="0 0 24 24">
+<path d="M12 14.016l3.984-4.031h-7.969zM12 2.016c5.531 0 9.984 4.453 9.984 9.984s-4.453 9.984-9.984 9.984-9.984-4.453-9.984-9.984 4.453-9.984 9.984-9.984z"></path>
+</symbol>
+<symbol id="iconQuoteRight" viewBox="0 0 26 28">
+<title>quote-right</title>
+<path d="M12 5v11c0 4.406-3.594 8-8 8h-1c-0.547 0-1-0.453-1-1v-2c0-0.547 0.453-1 1-1h1c2.203 0 4-1.797 4-4v-0.5c0-0.828-0.672-1.5-1.5-1.5h-3.5c-1.656 0-3-1.344-3-3v-6c0-1.656 1.344-3 3-3h6c1.656 0 3 1.344 3 3zM26 5v11c0 4.406-3.594 8-8 8h-1c-0.547 0-1-0.453-1-1v-2c0-0.547 0.453-1 1-1h1c2.203 0 4-1.797 4-4v-0.5c0-0.828-0.672-1.5-1.5-1.5h-3.5c-1.656 0-3-1.344-3-3v-6c0-1.656 1.344-3 3-3h6c1.656 0 3 1.344 3 3z"></path>
 </symbol>
 <symbol id="iconPlayCircle" viewBox="0 0 24 24">
 <path d="M12 20.016c4.406 0 8.016-3.609 8.016-8.016s-3.609-8.016-8.016-8.016-8.016 3.609-8.016 8.016 3.609 8.016 8.016 8.016zM12 2.016c5.531 0 9.984 4.453 9.984 9.984s-4.453 9.984-9.984 9.984-9.984-4.453-9.984-9.984 4.453-9.984 9.984-9.984zM9.984 16.5v-9l6 4.5z"></path>
@@ -134,8 +158,19 @@ echo'<svg style="position: absolute; width: 0; height: 0; overflow: hidden;" ver
 <symbol id="iconEmail" viewBox="0 0 28 28">
 <path d="M28 11.094v12.406c0 1.375-1.125 2.5-2.5 2.5h-23c-1.375 0-2.5-1.125-2.5-2.5v-12.406c0.469 0.516 1 0.969 1.578 1.359 2.594 1.766 5.219 3.531 7.766 5.391 1.313 0.969 2.938 2.156 4.641 2.156h0.031c1.703 0 3.328-1.188 4.641-2.156 2.547-1.844 5.172-3.625 7.781-5.391 0.562-0.391 1.094-0.844 1.563-1.359zM28 6.5c0 1.75-1.297 3.328-2.672 4.281-2.438 1.687-4.891 3.375-7.313 5.078-1.016 0.703-2.734 2.141-4 2.141h-0.031c-1.266 0-2.984-1.437-4-2.141-2.422-1.703-4.875-3.391-7.297-5.078-1.109-0.75-2.688-2.516-2.688-3.938 0-1.531 0.828-2.844 2.5-2.844h23c1.359 0 2.5 1.125 2.5 2.5z"></path>
 </symbol>
+<symbol id="iconHelp" viewBox="0 0 24 28">
+<path d="M14 21.5v-3c0-0.281-0.219-0.5-0.5-0.5h-3c-0.281 0-0.5 0.219-0.5 0.5v3c0 0.281 0.219 0.5 0.5 0.5h3c0.281 0 0.5-0.219 0.5-0.5zM18 11c0-2.859-3-5-5.688-5-2.547 0-4.453 1.094-5.797 3.328-0.141 0.219-0.078 0.5 0.125 0.656l2.063 1.563c0.078 0.063 0.187 0.094 0.297 0.094 0.141 0 0.297-0.063 0.391-0.187 0.734-0.938 1.047-1.219 1.344-1.437 0.266-0.187 0.781-0.375 1.344-0.375 1 0 1.922 0.641 1.922 1.328 0 0.812-0.422 1.219-1.375 1.656-1.109 0.5-2.625 1.797-2.625 3.313v0.562c0 0.281 0.219 0.5 0.5 0.5h3c0.281 0 0.5-0.219 0.5-0.5v0c0-0.359 0.453-1.125 1.188-1.547 1.188-0.672 2.812-1.578 2.812-3.953zM24 14c0 6.625-5.375 12-12 12s-12-5.375-12-12 5.375-12 12-12 12 5.375 12 12z"></path>
+</symbol>
 <symbol id="iconYoutube" viewBox="0 0 28 28">
 <path d="M11.109 17.625l7.562-3.906-7.562-3.953v7.859zM14 4.156c5.891 0 9.797 0.281 9.797 0.281 0.547 0.063 1.75 0.063 2.812 1.188 0 0 0.859 0.844 1.109 2.781 0.297 2.266 0.281 4.531 0.281 4.531v2.125s0.016 2.266-0.281 4.531c-0.25 1.922-1.109 2.781-1.109 2.781-1.062 1.109-2.266 1.109-2.812 1.172 0 0-3.906 0.297-9.797 0.297v0c-7.281-0.063-9.516-0.281-9.516-0.281-0.625-0.109-2.031-0.078-3.094-1.188 0 0-0.859-0.859-1.109-2.781-0.297-2.266-0.281-4.531-0.281-4.531v-2.125s-0.016-2.266 0.281-4.531c0.25-1.937 1.109-2.781 1.109-2.781 1.062-1.125 2.266-1.125 2.812-1.188 0 0 3.906-0.281 9.797-0.281v0z"></path>
+</symbol>
+<symbol id="iconBooks" viewBox="0 0 36 32">
+<path d="M7 4h-6c-0.55 0-1 0.45-1 1v22c0 0.55 0.45 1 1 1h6c0.55 0 1-0.45 1-1v-22c0-0.55-0.45-1-1-1zM6 10h-4v-2h4v2z"></path>
+<path d="M17 4h-6c-0.55 0-1 0.45-1 1v22c0 0.55 0.45 1 1 1h6c0.55 0 1-0.45 1-1v-22c0-0.55-0.45-1-1-1zM16 10h-4v-2h4v2z"></path>
+<path d="M23.909 5.546l-5.358 2.7c-0.491 0.247-0.691 0.852-0.443 1.343l8.999 17.861c0.247 0.491 0.852 0.691 1.343 0.443l5.358-2.7c0.491-0.247 0.691-0.852 0.443-1.343l-8.999-17.861c-0.247-0.491-0.852-0.691-1.343-0.443z"></path>
+</symbol>
+<symbol id="iconArchive" viewBox="0 0 20 20">
+<path d="M13.981 2h-7.963c0 0-0.996 0-0.996 1h9.955c0-1-0.996-1-0.996-1zM16.968 5c0-1-0.995-1-0.995-1h-11.946c0 0-0.995 0-0.995 1v1h13.936v-1zM18.958 6c-0.588-0.592-0.588-0.592-0.588-0.592v1.592h-16.74v-1.592c0 0 0 0-0.589 0.592s-1.011 0.75-0.774 2c0.236 1.246 1.379 8.076 1.549 9 0.186 1.014 1.217 1 1.217 1h13.936c0 0 1.030 0.014 1.217-1 0.17-0.924 1.312-7.754 1.549-9 0.235-1.25-0.187-1.408-0.777-2zM14 11.997c0 0.554-0.449 1.003-1.003 1.003h-5.994c-0.554 0-1.003-0.449-1.003-1.003v-1.997h1v2h6v-2h1v1.997z"></path>
 </symbol>
 <symbol id="iconComment" viewBox="0 0 32 32">
 <path d="M16 2c8.837 0 16 5.82 16 13s-7.163 13-16 13c-0.849 0-1.682-0.054-2.495-0.158-3.437 3.437-7.539 4.053-11.505 4.144v-0.841c2.142-1.049 4-2.961 4-5.145 0-0.305-0.024-0.604-0.068-0.897-3.619-2.383-5.932-6.024-5.932-10.103 0-7.18 7.163-13 16-13z"></path>
@@ -143,52 +178,21 @@ echo'<svg style="position: absolute; width: 0; height: 0; overflow: hidden;" ver
 <symbol id="iconArrowLeftLine" viewBox="0 0 20 20">
 <path d="M3.828 9l6.071-6.071-1.414-1.414-8.485 8.485 8.485 8.485 1.414-1.414-6.071-6.071h16.172v-2h-16.172z"></path>
 </symbol>
-<symbol id="iconArrowRightLine" viewBox="0 0 20 20">
-<path d="M16.172 9l-6.071-6.071 1.414-1.414 8.485 8.485-8.485 8.485-1.414-1.414 6.071-6.071h-16.172v-2z"></path>
-</symbol>
-<symbol id="iconArrowRightLine_2" viewBox="0 0 24 24">
-<path d="M19.9 12.4c0.1-0.2 0.1-0.5 0-0.8-0.1-0.1-0.1-0.2-0.2-0.3l-7-7c-0.4-0.4-1-0.4-1.4 0s-0.4 1 0 1.4l5.3 5.3h-11.6c-0.6 0-1 0.4-1 1s0.4 1 1 1h11.6l-5.3 5.3c-0.4 0.4-0.4 1 0 1.4 0.2 0.2 0.5 0.3 0.7 0.3s0.5-0.1 0.7-0.3l7-7c0.1-0.1 0.2-0.2 0.2-0.3z"></path>
-</symbol>
-<symbol id="iconPhone" viewBox="0 0 32 32">
-<path d="M22 20c-2 2-2 4-4 4s-4-2-6-4-4-4-4-6 2-2 4-4-4-8-6-8-6 6-6 6c0 4 4.109 12.109 8 16s12 8 16 8c0 0 6-4 6-6s-6-8-8-6z"></path>
-</symbol>
-<symbol id="iconPlay" viewBox="0 0 32 32">s
-<path d="M6 0v32l20-15.977-20-16.023z"></path>
-</symbol>
-<symbol id="iconQuoteLeft" viewBox="0 0 26 28">
-<path d="M12 15v6c0 1.656-1.344 3-3 3h-6c-1.656 0-3-1.344-3-3v-11c0-4.406 3.594-8 8-8h1c0.547 0 1 0.453 1 1v2c0 0.547-0.453 1-1 1h-1c-2.203 0-4 1.797-4 4v0.5c0 0.828 0.672 1.5 1.5 1.5h3.5c1.656 0 3 1.344 3 3zM26 15v6c0 1.656-1.344 3-3 3h-6c-1.656 0-3-1.344-3-3v-11c0-4.406 3.594-8 8-8h1c0.547 0 1 0.453 1 1v2c0 0.547-0.453 1-1 1h-1c-2.203 0-4 1.797-4 4v0.5c0 0.828 0.672 1.5 1.5 1.5h3.5c1.656 0 3 1.344 3 3z"></path>
-</symbol>
-<symbol id="iconHelp" viewBox="0 0 24 28">
-<path d="M14 21.5v-3c0-0.281-0.219-0.5-0.5-0.5h-3c-0.281 0-0.5 0.219-0.5 0.5v3c0 0.281 0.219 0.5 0.5 0.5h3c0.281 0 0.5-0.219 0.5-0.5zM18 11c0-2.859-3-5-5.688-5-2.547 0-4.453 1.094-5.797 3.328-0.141 0.219-0.078 0.5 0.125 0.656l2.063 1.563c0.078 0.063 0.187 0.094 0.297 0.094 0.141 0 0.297-0.063 0.391-0.187 0.734-0.938 1.047-1.219 1.344-1.437 0.266-0.187 0.781-0.375 1.344-0.375 1 0 1.922 0.641 1.922 1.328 0 0.812-0.422 1.219-1.375 1.656-1.109 0.5-2.625 1.797-2.625 3.313v0.562c0 0.281 0.219 0.5 0.5 0.5h3c0.281 0 0.5-0.219 0.5-0.5v0c0-0.359 0.453-1.125 1.188-1.547 1.188-0.672 2.812-1.578 2.812-3.953zM24 14c0 6.625-5.375 12-12 12s-12-5.375-12-12 5.375-12 12-12 12 5.375 12 12z"></path>
-</symbol>
-<symbol id="iconCity" viewBox="0 0 24 24">
-<path d="M18.984 15v-2.016h-1.969v2.016h1.969zM18.984 18.984v-1.969h-1.969v1.969h1.969zM12.984 6.984v-1.969h-1.969v1.969h1.969zM12.984 11.016v-2.016h-1.969v2.016h1.969zM12.984 15v-2.016h-1.969v2.016h1.969zM12.984 18.984v-1.969h-1.969v1.969h1.969zM6.984 11.016v-2.016h-1.969v2.016h1.969zM6.984 15v-2.016h-1.969v2.016h1.969zM6.984 18.984v-1.969h-1.969v1.969h1.969zM15 11.016h6v9.984h-18v-14.016h6v-1.969l3-3 3 3v6z"></path>
-</symbol>
-<symbol id="iconLocation" viewBox="0 0 20 20">
-<path d="M19.367 18.102l-1.367-4.102h-1.5l0.833 4h-14.666l0.833-4h-1.5l-1.368 4.102c-0.347 1.044 0.268 1.898 1.368 1.898h16c1.1 0 1.715-0.854 1.367-1.898zM15 5c0-2.761-2.238-5-5-5s-5 2.239-5 5c0 4.775 5 10 5 10s5-5.225 5-10zM7.3 5.060c0-1.491 1.208-2.699 2.7-2.699s2.7 1.208 2.7 2.699c0 1.492-1.209 2.7-2.7 2.7s-2.7-1.209-2.7-2.7z"></path>
-</symbol>
-<symbol id="iconMoney" viewBox="0 0 20 20">
-<path d="M11 16.755v2.245h-2v-2.143c-1.712-0.1-3.066-0.589-4.241-1.797l1.718-1.74c0.859 0.87 2.023 1.16 3.282 1.16 1.565 0 2.405-0.599 2.405-1.702 0-0.483-0.133-0.889-0.42-1.16-0.267-0.251-0.572-0.387-1.202-0.483l-1.642-0.232c-1.164-0.174-2.022-0.541-2.634-1.141-0.648-0.657-0.973-1.546-0.973-2.707 0-2.155 1.382-3.743 3.707-4.1v-1.955h2v1.932c1.382 0.145 2.465 0.62 3.415 1.551l-1.679 1.682c-0.859-0.832-1.889-0.947-2.787-0.947-1.412 0-2.099 0.792-2.099 1.74 0 0.348 0.115 0.716 0.401 0.986 0.267 0.252 0.706 0.464 1.26 0.541l1.602 0.232c1.241 0.174 2.023 0.522 2.596 1.063 0.726 0.696 1.050 1.702 1.050 2.92 0 2.25-1.567 3.662-3.759 4.055z"></path>
-</symbol>
 <symbol id="iconTime" viewBox="0 0 20 20">
 <path d="M10 0.4c-5.302 0-9.6 4.298-9.6 9.6s4.298 9.6 9.6 9.6c5.301 0 9.6-4.298 9.6-9.601 0-5.301-4.299-9.599-9.6-9.599zM10 17.599c-4.197 0-7.6-3.402-7.6-7.6 0-4.197 3.402-7.6 7.6-7.6v0 7.601l6.792-3.396c0.513 1.023 0.808 2.173 0.808 3.396 0 4.197-3.403 7.599-7.6 7.599z"></path>
+</symbol>
+<symbol id="iconPrint" viewBox="0 0 26 28">
+<path d="M6 24h14v-4h-14v4zM6 14h14v-6h-2.5c-0.828 0-1.5-0.672-1.5-1.5v-2.5h-10v10zM24 15c0-0.547-0.453-1-1-1s-1 0.453-1 1 0.453 1 1 1 1-0.453 1-1zM26 15v6.5c0 0.266-0.234 0.5-0.5 0.5h-3.5v2.5c0 0.828-0.672 1.5-1.5 1.5h-15c-0.828 0-1.5-0.672-1.5-1.5v-2.5h-3.5c-0.266 0-0.5-0.234-0.5-0.5v-6.5c0-1.641 1.359-3 3-3h1v-8.5c0-0.828 0.672-1.5 1.5-1.5h10.5c0.828 0 1.969 0.469 2.562 1.062l2.375 2.375c0.594 0.594 1.062 1.734 1.062 2.562v4h1c1.641 0 3 1.359 3 3z"></path>
 </symbol>
 </defs>
 </svg>';
 
 ?>
- <link rel="stylesheet"  type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/css/owl.carousel.min.css" />
- 
-
- <script src="<?php echo get_template_directory_uri(); ?>/assets/js/jquery-3.2.1.min.js"></script>
- <script src="<?php echo get_template_directory_uri(); ?>/assets/js/jquery.paroller.min.js"></script>
- <script src="<?php echo get_template_directory_uri(); ?>/assets/js/owl.carousel.min.js"></script>
 
 <?php
+
 }
-add_action( 'wp_footer', 'theme_footer_script' );
-
-
+add_action( 'wp_enqueue_scripts', 'skeleton_scripts' );
 
 
 
@@ -298,7 +302,8 @@ class Custom_Post_Type_Image_Upload {
 	 * Register the custom post type
 	 */
 	public function init() {
-		
+	
+
 	// promocoes
 	$labels_promocoes = array(
 		"name" => __( "Promoções", "" ),
@@ -1213,82 +1218,82 @@ function coupon_metabox_callback( $post ) {
 	// Adiciona um campo para verificação posterior
 	wp_nonce_field( 'coupon_custom_metabox', 'coupon_custom_metabox_nonce' );
 	
-	$_id_promo = get_post_meta( $post->ID, '_id_promo', true );
-	$_titulo_promo = get_post_meta( $post->ID, '_titulo_promo', true );
+	$_id_promo      = get_post_meta( $post->ID, '_id_promo', true );
+	$_id_user       = get_post_meta( $post->ID, '_id_user', true );
+	$_titulo_promo  = get_post_meta( $post->ID, '_titulo_promo', true );
 	$_status_coupon = get_post_meta( $post->ID, '_status_coupon', true );
 
-
-	
-	
-	echo '<h4>PROMOÇÃO</h4>';
-?>
-
-<select id="promocao" style="width: 100%" name="promocao">
-                
-<?php 
-
-	$newsArgs = array( 'post_type' => 'promocoes', 'meta_key' => 'value_line_2', 'orderby' => 'meta_value_num', 'order' => 'ASC');
-	$newsLoop = new WP_Query( $newsArgs );
-			
-		if ( $newsLoop->have_posts() ):
-			 while ( $newsLoop->have_posts() ) : $newsLoop->the_post();
- ?>
-
-               
-        <option value="<?php echo get_the_ID(); ?>" <?php if( get_the_ID() == $_id_promo ) { echo 'selected'; } ?>>
-        	<?php echo get_the_title(); ?>  
-		</option>
-
-       <?php endwhile; ?>
-
-       <?php 
-			endif; 
-			wp_reset_postdata(); 
-		?>
-
-</select>
-
-<?php
-
-
-	echo '<h4>STATUS DO CUPOM</h4>';
-
 	?>
-
-
-<select style="width: 200px" name="_status_coupon">
-	<?php
-	// Generate all items of drop-down list
-	for ( $_status_coupon_opt = 4; $_status_coupon_opt >= 1; $_status_coupon_opt -- ) {
 		
-		switch ( $_status_coupon_opt ) {
-			case 1 : 
-				$titleOption = 'Cancelado';
-				break;
-			
-			case 2 : 
-				$titleOption = 'Expirado';
-				break;
 
-			case 3 : 
-				$titleOption = 'Utilizado';
-				break;
+		<div>
+			<?php $user_info = get_userdata($_id_user);
+				echo "<div style='border:1px solid #ccc;padding: 0 10px;background: #e4e4e4;'>";
+	      		echo '<h4>ID:    ' . $user_info->ID                   .'</h4>'."\n";
+	      		echo '<p>Nome:   ' . $user_info->user_firstname       .'</p>'. "\n";
+	      		echo '<p>E-mail: ' . $user_info->user_login           .'</p>'. "\n";
+	      		echo '<p>Tipo:   ' . implode(', ', $user_info->roles) .'</p>'. "\n";
+	      		echo "</div>"; 
+			?>
+		</div>
 
-			case 4 : 
-				$titleOption = 'Ativo';
-				break;
-		}
+		<?php echo '<h4>PROMOÇÃO</h4>'; ?> 
 
-	?>
-    <option value="<?php echo $_status_coupon_opt; ?>" <?php echo selected( $_status_coupon_opt, $_status_coupon ) ?>>
-    	<?php echo $titleOption; ?>  
-	</option>
-    <?php } ?>
-</select>
+		<select id="promocao" style="width: 100%" name="promocao">
+		                
+			<?php 
 
+				$newsArgs = array( 'post_type' => 'promocoes', 'meta_key' => 'value_line_2', 'orderby' => 'meta_value_num', 'order' => 'ASC');
+				
+				$newsLoop = new WP_Query( $newsArgs );
+						
+					if ( $newsLoop->have_posts() ): while ( $newsLoop->have_posts() ) : $newsLoop->the_post();
+					
+					?>
+			        <option value="<?php echo get_the_ID(); ?>" <?php if( get_the_ID() == $_id_promo ) { echo 'selected'; } ?>>
+			        	<?php echo get_the_title(); ?>  
+					</option>
 
-	<?php
+		       <?php endwhile; ?>
+
+		    <?php endif; wp_reset_postdata(); ?>
+		</select>
+
+		<?php echo '<h4>STATUS DO CUPOM</h4>'; ?>
+
+		<select style="width: 200px" name="_status_coupon">
+			<?php
+			// Generate all items of drop-down list
+			for ( $_status_coupon_opt = 4; $_status_coupon_opt >= 1; $_status_coupon_opt -- ) {
+				
+				switch ( $_status_coupon_opt ) {
+					case 1 : 
+						$titleOption = 'Cancelado';
+						break;
+					
+					case 2 : 
+						$titleOption = 'Expirado';
+						break;
+
+					case 3 : 
+						$titleOption = 'Utilizado';
+						break;
+
+					case 4 : 
+						$titleOption = 'Ativo';
+						break;
+				}
+
+			?>
+		    <option value="<?php echo $_status_coupon_opt; ?>" <?php echo selected( $_status_coupon_opt, $_status_coupon ) ?>>
+		    	<?php echo $titleOption; ?>  
+			</option>
+		    <?php } ?>
+		</select>
+
 	
+
+	<?php	
 }
 
 function coupon_save_custom_metabox_data( $post_id ) {
@@ -1315,6 +1320,8 @@ function coupon_save_custom_metabox_data( $post_id ) {
 	
 	$_id_promo = isset( $_POST['_id_promo'] ) ? $_POST['_id_promo'] : null;
 
+	$_id_user = isset( $_POST['_id_user'] ) ? $_POST['_id_user'] : null;
+
 	$_titulo_promo = isset( $_POST['_titulo_promo'] ) ? $_POST['_titulo_promo'] : null;
 
 	$_status_coupon = isset( $_POST['_status_coupon'] ) ? $_POST['_status_coupon'] : null;
@@ -1322,6 +1329,8 @@ function coupon_save_custom_metabox_data( $post_id ) {
 	// Atualiza os dados no BD
 	
 	update_post_meta( $post_id, '_id_promo', $_id_promo );
+
+	update_post_meta( $post_id, '_id_user', $_id_user );
 
 	update_post_meta( $post_id, '_titulo_promo', $_titulo_promo );
 
@@ -1334,7 +1343,7 @@ add_action( 'save_post', 'coupon_save_custom_metabox_data' );
 
 // Salva os cupons gerados por usuários
 
-function save_coupon_data( $code_coupon, $promocao_id, $promocao_title ) {
+function save_coupon_data( $code_coupon, $promocao_id, $user_id, $promocao_title ) {
 
 
        $args = array(
@@ -1347,8 +1356,85 @@ function save_coupon_data( $code_coupon, $promocao_id, $promocao_title ) {
        $post_id = wp_insert_post($args);
 
         update_post_meta($post_id, '_id_promo', $promocao_id);
+        update_post_meta($post_id, '_id_user', $user_id);
         update_post_meta($post_id, '_titulo_promo', $promocao_title);
         update_post_meta($post_id, '_status_coupon', 'ativo');
 
- }
+}
 
+
+// a simple WordPress frontend login implementation
+// written by Arūnas Liuiza | tinyStudio | wp.tribuna.lt
+// Usage: use [tiny_login] shortcode or get_tiny_login_form()/the_tiny_login_form() template tags
+// Arguments: one (optional) argument 'redirect': pass url where to redirect after successful login (default: false);
+// Localization: replace 'theme' with your text domain string.
+// login action hook - catches form submission and acts accordingly
+add_action('init','tiny_login');
+function tiny_login() {
+  global $tiny_error;
+  $tiny_error = false;
+  if (isset($_POST['username']) && isset($_POST['password'])) {
+    $creds = array();
+    $creds['user_login'] = $_POST['username'];
+    $creds['user_password'] = $_POST['password'];
+    //$creds['remember'] = false;
+    $user = wp_signon( $creds );
+    if ( is_wp_error($user) ) {
+      $tiny_error = $user->get_error_message();
+    } else {
+      if (isset($_POST['redirect']) && $_POST['redirect']) {
+        wp_redirect($_POST['redirect']);
+      }
+    }
+  }
+}
+
+// shows error message
+function the_tiny_error() {
+  echo get_tiny_error();
+}
+function get_tiny_error() {
+  global $tiny_error;
+  if ($tiny_error) {
+    $return = $tiny_error;
+    $tiny_error = false;
+    return $return;
+  } else {
+    return false;
+  }
+}
+// shows login form (or a message, if user already logged in)
+function get_tiny_login_form($redirect=false) {
+  if (!is_user_logged_in()) {
+    $return = "<form action=\"\" method=\"post\" class=\"tiny_form tiny_login\">\r\n";
+    $error = get_tiny_error();
+    if ($error)
+      $return .= "<p class=\"error\">{$error}</p>\r\n";
+    $return .= "  <p>
+      <label for=\"tiny_username\">".__('Username','theme')."</label>
+      <input type=\"text\" id=\"tiny_username\" name=\"username\" value=\"".(isset($_POST['username'])?$_POST['username']:"")."\"/>
+    </p>\r\n";
+    $return .= "  <p>
+      <label for=\"tiny_password\">".__('Password','theme')."</label>
+      <input type=\"password\" id=\"tiny_password\" name=\"password\"/>
+    </p>\r\n";
+    if ($redirect)
+      $return .= "  <input type=\"hidden\" name=\"redirect\" value=\"{$redirect}\">\r\n";
+    $return .= "  <button type=\"submit\">".__('Login','theme')."</button>\r\n";
+    $return .= "</form>\r\n";
+  } else {
+    $return = "<p>".__('User is already logged in','theme')."</p>";
+  }
+  return $return;
+}
+function the_tiny_login_form($redirect=false) {
+  echo get_tiny_login_form($redirect);
+}
+// adds a handy [tiny_login] shortcode to use in posts/pages
+add_shortcode('tiny_login','tiny_login_shortcode');
+function tiny_login_shortcode ($atts,$content=false) {
+  $atts = shortcode_atts(array(
+    'redirect' => false
+  ), $atts);
+  return get_tiny_login_form($atts['redirect']);
+}

@@ -1370,6 +1370,7 @@ a {
 
 .Section--couponData .Section-subSection--code .Code-button {
   background: #44752f;
+  color: #FFFFFF;
 }
 
 .Section--couponData .Section-subSection--code .Code-button:hover {

@@ -20,10 +20,19 @@
 	
 	<section class="Section u-paddingBottom--inter--half u-paddingTop--inter--half u-marginVertical--inter--half--px">
 		
-		<div class="Section--destaque-content u-size10of24">
+		<div class="Section--destaque-content u-alignCenter u-size10of24 u-alignCenterBox">
 			<header class="entry-header Section--header u-positionRelative u-marginHorizontal--inter u-displayBlock u-zIndex9 u-size24of24 u-alignCenter u-paddingVertical--inter--px">	
-				<h2 class="entry-title Section--header-title"><?php echo get_the_title(); ?></h2>
+				<h2 class="entry-title Section--header-title">CUPOM GERADO!</h2>
 			</header><!-- .entry-header -->
+			<div class="Section-resume">
+				<p>
+					Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+				</p>
+			</div>
+			<div class="Code u-marginTop">
+				CÓDIGO:
+				<h2><?php echo get_the_title(); ?></h2>
+			</div>
 		</div>
 
 	</section>

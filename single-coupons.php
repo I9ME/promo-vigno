@@ -26,7 +26,7 @@
 <body <?php body_class(); ?>>
 
 <div id="main" class="SiteMain" role="main">
-	<?php get_template_part('template-parts/page/intro','page'); ?>
+	<?php //get_template_part('template-parts/page/intro','page'); ?>
 	
 	<main class="SiteMain-main">
 		<?php get_template_part('template-parts/promocoes/section-coupons','single');?>
