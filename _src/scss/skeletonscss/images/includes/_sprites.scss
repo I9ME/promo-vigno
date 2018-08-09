@@ -1,0 +1,299 @@
+// SCSS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home {
+//   width: $icon-home-width;
+// }
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path;
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites;
+$-arabesco-bottom-bottom-name: 'ArabescoBottom--bottom';
+$-arabesco-bottom-bottom-x: 0px;
+$-arabesco-bottom-bottom-y: 190px;
+$-arabesco-bottom-bottom-offset-x: 0px;
+$-arabesco-bottom-bottom-offset-y: -190px;
+$-arabesco-bottom-bottom-width: 243px;
+$-arabesco-bottom-bottom-height: 53px;
+$-arabesco-bottom-bottom-total-width: 393px;
+$-arabesco-bottom-bottom-total-height: 332px;
+$-arabesco-bottom-bottom-image: '../images/sprite.png';
+$-arabesco-bottom-bottom: (0px, 190px, 0px, -190px, 243px, 53px, 393px, 332px, '../images/sprite.png', 'ArabescoBottom--bottom', );
+$-arabesco-top-color-15-name: 'ArabescoTop--color_15';
+$-arabesco-top-color-15-x: 0px;
+$-arabesco-top-color-15-y: 273px;
+$-arabesco-top-color-15-offset-x: 0px;
+$-arabesco-top-color-15-offset-y: -273px;
+$-arabesco-top-color-15-width: 182px;
+$-arabesco-top-color-15-height: 32px;
+$-arabesco-top-color-15-total-width: 393px;
+$-arabesco-top-color-15-total-height: 332px;
+$-arabesco-top-color-15-image: '../images/sprite.png';
+$-arabesco-top-color-15: (0px, 273px, 0px, -273px, 182px, 32px, 393px, 332px, '../images/sprite.png', 'ArabescoTop--color_15', );
+$-arabesco-top-intro-name: 'ArabescoTop--intro';
+$-arabesco-top-intro-x: 0px;
+$-arabesco-top-intro-y: 136px;
+$-arabesco-top-intro-offset-x: 0px;
+$-arabesco-top-intro-offset-y: -136px;
+$-arabesco-top-intro-width: 243px;
+$-arabesco-top-intro-height: 54px;
+$-arabesco-top-intro-total-width: 393px;
+$-arabesco-top-intro-total-height: 332px;
+$-arabesco-top-intro-image: '../images/sprite.png';
+$-arabesco-top-intro: (0px, 136px, 0px, -136px, 243px, 54px, 393px, 332px, '../images/sprite.png', 'ArabescoTop--intro', );
+$-figure-icon-tripadvisor-hover-name: 'FigureIcon--Tripadvisor--hover';
+$-figure-icon-tripadvisor-hover-x: 346px;
+$-figure-icon-tripadvisor-hover-y: 102px;
+$-figure-icon-tripadvisor-hover-offset-x: -346px;
+$-figure-icon-tripadvisor-hover-offset-y: -102px;
+$-figure-icon-tripadvisor-hover-width: 43px;
+$-figure-icon-tripadvisor-hover-height: 43px;
+$-figure-icon-tripadvisor-hover-total-width: 393px;
+$-figure-icon-tripadvisor-hover-total-height: 332px;
+$-figure-icon-tripadvisor-hover-image: '../images/sprite.png';
+$-figure-icon-tripadvisor-hover: (346px, 102px, -346px, -102px, 43px, 43px, 393px, 332px, '../images/sprite.png', 'FigureIcon--Tripadvisor--hover', );
+$-figure-icon-tripadvisor-name: 'FigureIcon--Tripadvisor';
+$-figure-icon-tripadvisor-x: 346px;
+$-figure-icon-tripadvisor-y: 145px;
+$-figure-icon-tripadvisor-offset-x: -346px;
+$-figure-icon-tripadvisor-offset-y: -145px;
+$-figure-icon-tripadvisor-width: 43px;
+$-figure-icon-tripadvisor-height: 43px;
+$-figure-icon-tripadvisor-total-width: 393px;
+$-figure-icon-tripadvisor-total-height: 332px;
+$-figure-icon-tripadvisor-image: '../images/sprite.png';
+$-figure-icon-tripadvisor: (346px, 145px, -346px, -145px, 43px, 43px, 393px, 332px, '../images/sprite.png', 'FigureIcon--Tripadvisor', );
+$-figure-icon-facebook-hover-name: 'FigureIcon--facebook--hover';
+$-figure-icon-facebook-hover-x: 243px;
+$-figure-icon-facebook-hover-y: 190px;
+$-figure-icon-facebook-hover-offset-x: -243px;
+$-figure-icon-facebook-hover-offset-y: -190px;
+$-figure-icon-facebook-hover-width: 43px;
+$-figure-icon-facebook-hover-height: 43px;
+$-figure-icon-facebook-hover-total-width: 393px;
+$-figure-icon-facebook-hover-total-height: 332px;
+$-figure-icon-facebook-hover-image: '../images/sprite.png';
+$-figure-icon-facebook-hover: (243px, 190px, -243px, -190px, 43px, 43px, 393px, 332px, '../images/sprite.png', 'FigureIcon--facebook--hover', );
+$-figure-icon-facebook-name: 'FigureIcon--facebook';
+$-figure-icon-facebook-x: 243px;
+$-figure-icon-facebook-y: 136px;
+$-figure-icon-facebook-offset-x: -243px;
+$-figure-icon-facebook-offset-y: -136px;
+$-figure-icon-facebook-width: 43px;
+$-figure-icon-facebook-height: 43px;
+$-figure-icon-facebook-total-width: 393px;
+$-figure-icon-facebook-total-height: 332px;
+$-figure-icon-facebook-image: '../images/sprite.png';
+$-figure-icon-facebook: (243px, 136px, -243px, -136px, 43px, 43px, 393px, 332px, '../images/sprite.png', 'FigureIcon--facebook', );
+$-figure-icon-instagram-hover-name: 'FigureIcon--instagram--hover';
+$-figure-icon-instagram-hover-x: 308px;
+$-figure-icon-instagram-hover-y: 258px;
+$-figure-icon-instagram-hover-offset-x: -308px;
+$-figure-icon-instagram-hover-offset-y: -258px;
+$-figure-icon-instagram-hover-width: 43px;
+$-figure-icon-instagram-hover-height: 43px;
+$-figure-icon-instagram-hover-total-width: 393px;
+$-figure-icon-instagram-hover-total-height: 332px;
+$-figure-icon-instagram-hover-image: '../images/sprite.png';
+$-figure-icon-instagram-hover: (308px, 258px, -308px, -258px, 43px, 43px, 393px, 332px, '../images/sprite.png', 'FigureIcon--instagram--hover', );
+$-figure-icon-instagram-name: 'FigureIcon--instagram';
+$-figure-icon-instagram-x: 308px;
+$-figure-icon-instagram-y: 215px;
+$-figure-icon-instagram-offset-x: -308px;
+$-figure-icon-instagram-offset-y: -215px;
+$-figure-icon-instagram-width: 43px;
+$-figure-icon-instagram-height: 43px;
+$-figure-icon-instagram-total-width: 393px;
+$-figure-icon-instagram-total-height: 332px;
+$-figure-icon-instagram-image: '../images/sprite.png';
+$-figure-icon-instagram: (308px, 215px, -308px, -215px, 43px, 43px, 393px, 332px, '../images/sprite.png', 'FigureIcon--instagram', );
+$-figure-icon-newsletter-trilha-name: 'FigureIcon--newsletter--trilha';
+$-figure-icon-newsletter-trilha-x: 0px;
+$-figure-icon-newsletter-trilha-y: 71px;
+$-figure-icon-newsletter-trilha-offset-x: 0px;
+$-figure-icon-newsletter-trilha-offset-y: -71px;
+$-figure-icon-newsletter-trilha-width: 305px;
+$-figure-icon-newsletter-trilha-height: 65px;
+$-figure-icon-newsletter-trilha-total-width: 393px;
+$-figure-icon-newsletter-trilha-total-height: 332px;
+$-figure-icon-newsletter-trilha-image: '../images/sprite.png';
+$-figure-icon-newsletter-trilha: (0px, 71px, 0px, -71px, 305px, 65px, 393px, 332px, '../images/sprite.png', 'FigureIcon--newsletter--trilha', );
+$-figure-icon-newsletter-name: 'FigureIcon--newsletter';
+$-figure-icon-newsletter-x: 308px;
+$-figure-icon-newsletter-y: 52px;
+$-figure-icon-newsletter-offset-x: -308px;
+$-figure-icon-newsletter-offset-y: -52px;
+$-figure-icon-newsletter-width: 53px;
+$-figure-icon-newsletter-height: 50px;
+$-figure-icon-newsletter-total-width: 393px;
+$-figure-icon-newsletter-total-height: 332px;
+$-figure-icon-newsletter-image: '../images/sprite.png';
+$-figure-icon-newsletter: (308px, 52px, -308px, -52px, 53px, 50px, 393px, 332px, '../images/sprite.png', 'FigureIcon--newsletter', );
+$-figure-icon-pdf-name: 'FigureIcon--pdf';
+$-figure-icon-pdf-x: 113px;
+$-figure-icon-pdf-y: 305px;
+$-figure-icon-pdf-offset-x: -113px;
+$-figure-icon-pdf-offset-y: -305px;
+$-figure-icon-pdf-width: 67px;
+$-figure-icon-pdf-height: 25px;
+$-figure-icon-pdf-total-width: 393px;
+$-figure-icon-pdf-total-height: 332px;
+$-figure-icon-pdf-image: '../images/sprite.png';
+$-figure-icon-pdf: (113px, 305px, -113px, -305px, 67px, 25px, 393px, 332px, '../images/sprite.png', 'FigureIcon--pdf', );
+$-figure-icon-send-name: 'FigureIcon--send';
+$-figure-icon-send-x: 308px;
+$-figure-icon-send-y: 0px;
+$-figure-icon-send-offset-x: -308px;
+$-figure-icon-send-offset-y: 0px;
+$-figure-icon-send-width: 85px;
+$-figure-icon-send-height: 52px;
+$-figure-icon-send-total-width: 393px;
+$-figure-icon-send-total-height: 332px;
+$-figure-icon-send-image: '../images/sprite.png';
+$-figure-icon-send: (308px, 0px, -308px, 0px, 85px, 52px, 393px, 332px, '../images/sprite.png', 'FigureIcon--send', );
+$-intro-name-vignoli-name: 'Intro--nameVignoli';
+$-intro-name-vignoli-x: 0px;
+$-intro-name-vignoli-y: 0px;
+$-intro-name-vignoli-offset-x: 0px;
+$-intro-name-vignoli-offset-y: 0px;
+$-intro-name-vignoli-width: 308px;
+$-intro-name-vignoli-height: 71px;
+$-intro-name-vignoli-total-width: 393px;
+$-intro-name-vignoli-total-height: 332px;
+$-intro-name-vignoli-image: '../images/sprite.png';
+$-intro-name-vignoli: (0px, 0px, 0px, 0px, 308px, 71px, 393px, 332px, '../images/sprite.png', 'Intro--nameVignoli', );
+$-shadow-box-bottom-name: 'ShadowBox--bottom';
+$-shadow-box-bottom-x: 0px;
+$-shadow-box-bottom-y: 243px;
+$-shadow-box-bottom-offset-x: 0px;
+$-shadow-box-bottom-offset-y: -243px;
+$-shadow-box-bottom-width: 293px;
+$-shadow-box-bottom-height: 30px;
+$-shadow-box-bottom-total-width: 393px;
+$-shadow-box-bottom-total-height: 332px;
+$-shadow-box-bottom-image: '../images/sprite.png';
+$-shadow-box-bottom: (0px, 243px, 0px, -243px, 293px, 30px, 393px, 332px, '../images/sprite.png', 'ShadowBox--bottom', );
+$-shadow-box-tab-left-footer-name: 'ShadowBox--tabLeft--footer';
+$-shadow-box-tab-left-footer-x: 0px;
+$-shadow-box-tab-left-footer-y: 305px;
+$-shadow-box-tab-left-footer-offset-x: 0px;
+$-shadow-box-tab-left-footer-offset-y: -305px;
+$-shadow-box-tab-left-footer-width: 113px;
+$-shadow-box-tab-left-footer-height: 26px;
+$-shadow-box-tab-left-footer-total-width: 393px;
+$-shadow-box-tab-left-footer-total-height: 332px;
+$-shadow-box-tab-left-footer-image: '../images/sprite.png';
+$-shadow-box-tab-left-footer: (0px, 305px, 0px, -305px, 113px, 26px, 393px, 332px, '../images/sprite.png', 'ShadowBox--tabLeft--footer', );
+$-shadow-box-tab-left-name: 'ShadowBox--tabLeft';
+$-shadow-box-tab-left-x: 308px;
+$-shadow-box-tab-left-y: 102px;
+$-shadow-box-tab-left-offset-x: -308px;
+$-shadow-box-tab-left-offset-y: -102px;
+$-shadow-box-tab-left-width: 19px;
+$-shadow-box-tab-left-height: 113px;
+$-shadow-box-tab-left-total-width: 393px;
+$-shadow-box-tab-left-total-height: 332px;
+$-shadow-box-tab-left-image: '../images/sprite.png';
+$-shadow-box-tab-left: (308px, 102px, -308px, -102px, 19px, 113px, 393px, 332px, '../images/sprite.png', 'ShadowBox--tabLeft', );
+$-shadow-box-tab-right-footer-name: 'ShadowBox--tabRight--footer';
+$-shadow-box-tab-right-footer-x: 182px;
+$-shadow-box-tab-right-footer-y: 273px;
+$-shadow-box-tab-right-footer-offset-x: -182px;
+$-shadow-box-tab-right-footer-offset-y: -273px;
+$-shadow-box-tab-right-footer-width: 113px;
+$-shadow-box-tab-right-footer-height: 26px;
+$-shadow-box-tab-right-footer-total-width: 393px;
+$-shadow-box-tab-right-footer-total-height: 332px;
+$-shadow-box-tab-right-footer-image: '../images/sprite.png';
+$-shadow-box-tab-right-footer: (182px, 273px, -182px, -273px, 113px, 26px, 393px, 332px, '../images/sprite.png', 'ShadowBox--tabRight--footer', );
+$-shadow-box-tab-right-name: 'ShadowBox--tabRight';
+$-shadow-box-tab-right-x: 327px;
+$-shadow-box-tab-right-y: 102px;
+$-shadow-box-tab-right-offset-x: -327px;
+$-shadow-box-tab-right-offset-y: -102px;
+$-shadow-box-tab-right-width: 19px;
+$-shadow-box-tab-right-height: 113px;
+$-shadow-box-tab-right-total-width: 393px;
+$-shadow-box-tab-right-total-height: 332px;
+$-shadow-box-tab-right-image: '../images/sprite.png';
+$-shadow-box-tab-right: (327px, 102px, -327px, -102px, 19px, 113px, 393px, 332px, '../images/sprite.png', 'ShadowBox--tabRight', );
+$border-box-gadient-name: 'borderBox--gadient';
+$border-box-gadient-x: 0px;
+$border-box-gadient-y: 331px;
+$border-box-gadient-offset-x: 0px;
+$border-box-gadient-offset-y: -331px;
+$border-box-gadient-width: 290px;
+$border-box-gadient-height: 1px;
+$border-box-gadient-total-width: 393px;
+$border-box-gadient-total-height: 332px;
+$border-box-gadient-image: '../images/sprite.png';
+$border-box-gadient: (0px, 331px, 0px, -331px, 290px, 1px, 393px, 332px, '../images/sprite.png', 'borderBox--gadient', );
+$spritesheet-width: 393px;
+$spritesheet-height: 332px;
+$spritesheet-image: '../images/sprite.png';
+$spritesheet-sprites: ($-arabesco-bottom-bottom, $-arabesco-top-color-15, $-arabesco-top-intro, $-figure-icon-tripadvisor-hover, $-figure-icon-tripadvisor, $-figure-icon-facebook-hover, $-figure-icon-facebook, $-figure-icon-instagram-hover, $-figure-icon-instagram, $-figure-icon-newsletter-trilha, $-figure-icon-newsletter, $-figure-icon-pdf, $-figure-icon-send, $-intro-name-vignoli, $-shadow-box-bottom, $-shadow-box-tab-left-footer, $-shadow-box-tab-left, $-shadow-box-tab-right-footer, $-shadow-box-tab-right, $border-box-gadient, );
+$spritesheet: (393px, 332px, '../images/sprite.png', $spritesheet-sprites, );
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home {
+//   @include sprite-width($icon-home);
+// }
+//
+// .icon-email {
+//   @include sprite($icon-email);
+// }
+//
+// Example usage in HTML:
+//
+// `display: block` sprite:
+// <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//
+// // CSS
+// .icon {
+//   display: inline-block;
+// }
+//
+// // HTML
+// <i class="icon icon-home"></i>
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SCSS
+//
+// @include sprites($spritesheet-sprites);
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

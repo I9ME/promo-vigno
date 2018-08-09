@@ -1,0 +1,38 @@
+.Site-header{
+
+	height: $header_height_m;
+
+	@media screen and (min-width: $break-sm){
+		
+		height: $header_height;
+	}
+	
+
+
+
+	
+	// ===================
+	// CUSTOMIZER
+	// ===================
+	&-branding{
+		
+		}
+	
+
+
+
+	// ===================
+	// CUSTOMIZER - END
+	// ===================
+
+	
+
+}
+
+
+.Branding{
+	&--img{
+	
+	}
+	
+}
