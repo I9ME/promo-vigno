@@ -14,6 +14,7 @@ function LightboxClose() {
    $('#Lightbox--container').removeClass('Lightbox--active');
    $('#Lightbox--container').addClass('Lightbox--inactive');
    $('.Lightbox-window-content').html();
+    jQuery('body').css({'overflow-y':'auto'});
 }
 
 $( ".LightboxClose" ).on( "click", LightboxClose );
@@ -56,6 +57,7 @@ $( ".LightboxClose" ).on( "click", LightboxClose );
 // Abre o Lightbox
 function LightboxCall(component) {
   //alert( "clicked" );
+  jQuery('body').css({'overflow-y':'hidden'});
   jQuery('#Lightbox--container').removeClass('Lightbox--inactive');
   jQuery('#Lightbox--container').addClass('Lightbox--active');
   jQuery('.Lightbox-window-content').load( component );
@@ -70,6 +72,7 @@ function KeyUpEsc(evt) {
        jQuery('#Lightbox--container').removeClass('Lightbox--active');
        jQuery('#Lightbox--container').addClass('Lightbox--inactive');
        jQuery('.Lightbox-window-content').html( '' );
+       jQuery('body').css({'overflow-y':'auto'});
     }
 }
 
