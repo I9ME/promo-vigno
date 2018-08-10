@@ -17,7 +17,10 @@
 
 
 function skeleton_setup() {
-	load_theme_textdomain( 'cupons-promocoes' );
+
+	$skeleton_version = '1.0';
+
+	load_theme_textdomain( 'promo-vigno' );
 
 
 
@@ -72,21 +75,22 @@ function skeleton_scripts() {
 	// Add custom fonts, used in the main stylesheet.
 
 	// Theme stylesheet.
-	wp_enqueue_style('css-main', get_template_directory_uri() . '/assets/css/main.min.css', array(), null);
+	wp_enqueue_style('css-main', get_template_directory_uri() . '/assets/css/main.min.css', array(), $skeleton_version, 'all');
+	wp_enqueue_script( 'js-main', get_template_directory_uri() . '/assets/js/main.min.js', array(), $skeleton_version, true );
 
 
-	wp_enqueue_script( 'js-main', get_theme_file_uri( '/assets/js/jquery-3.2.1.js' ), array(), null );
 
-	wp_enqueue_script( 'js-jquery', get_theme_file_uri( '/assets/js/main.min.js' ), array(), null );
+?>
 
-	//wp_enqueue_script( 'js-stellar', get_theme_file_uri( '/assets/js/stellar.min.js' ), array(), null );
-	//wp_enqueue_script( 'js-stellar', get_theme_file_uri( '/assets/js/jquery.paroller.min.js' ), array(), null );
+<?php
 
-	
-   
+}
+add_action( 'wp_enqueue_scripts', 'skeleton_scripts' );
 
-    wp_enqueue_script('main');
 
+
+// Add scripts to wp_footer()
+function theme_footer_script() {
 
 //SVG
 
@@ -187,12 +191,20 @@ echo'<svg style="position: absolute; width: 0; height: 0; overflow: hidden;" ver
 </defs>
 </svg>';
 
+
 ?>
+ <link rel="stylesheet"  type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/css/owl.carousel.min.css" />
+ 
+
+ <script src="<?php echo get_template_directory_uri(); ?>/assets/js/jquery-3.2.1.min.js"></script>
+ <script src="<?php echo get_template_directory_uri(); ?>/assets/js/jquery.paroller.min.js"></script>
+ <script src="<?php echo get_template_directory_uri(); ?>/assets/js/owl.carousel.min.js"></script>
 
 <?php
-
 }
-add_action( 'wp_enqueue_scripts', 'skeleton_scripts' );
+add_action( 'wp_footer', 'theme_footer_script' );
+
+
 
 
 
@@ -1231,7 +1243,7 @@ function coupon_metabox_callback( $post ) {
 				echo "<div style='border:1px solid #ccc;padding: 0 10px;background: #e4e4e4;'>";
 	      		echo '<h4>ID:    ' . $user_info->ID                   .'</h4>'."\n";
 	      		echo '<p>Nome:   ' . $user_info->user_firstname       .'</p>'. "\n";
-	      		echo '<p>E-mail: ' . $user_info->user_login           .'</p>'. "\n";
+	      		echo '<p>Usuário: ' . $user_info->user_login           .'</p>'. "\n";
 	      		echo '<p>Tipo:   ' . implode(', ', $user_info->roles) .'</p>'. "\n";
 	      		echo "</div>"; 
 			?>
