@@ -1402,10 +1402,6 @@ a {
   padding-left: 10px;
 }
 
-.Section--loginCadastro {
-  margin-top: 50%;
-}
-
 .Section--loginCadastro .Section-subSection-header-title {
   font-size: 18px;
 }
@@ -1659,6 +1655,15 @@ a {
   .SiteMain-main .Article--promocoes .Section--dataBar .Section-items-item-content {
     font-size: 20px;
   }
+}
+
+body.page #register-form {
+  display: block;
+}
+
+body.page #register-form form {
+  /* padding-left: $h_spacing;
+			padding-right: $h_spacing; */
 }
 
 .Site-footer {

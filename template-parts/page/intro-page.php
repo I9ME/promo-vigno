@@ -7,10 +7,12 @@
 			<h1 class="Captions-title u-alignCenter">
 				<span class="Captions-title--line1 u-displayBlock u-sizeFull">Conheça as <strong>promoções</strong> da</span>
 				<em class="Captions-title--line2 u-displayBlock U-sizeFull u-marginTop--inter--half u-lineHeight0">
+				<a href="<?php echo get_home_url(); ?>">
 					<span class="u-isHiddenVisually">VIGNOLI</span>
 					<figure class="Intro--nameVignoli u-displayInlineBlock"></figure>
-				</em>
-				<span class="Captions-title--line3 u-displayBlock u-sizeFull">Gere o seu <strong>cupom</strong> e aproveite!</span>
+				</a>
+			</em>
+			<span class="Captions-title--line3 u-displayBlock u-sizeFull">Gere o seu <strong>cupom</strong> e aproveite!</span>
 			</h1>
 		<figure class="ArabescoBottom--bottom u-marginTop--inter--half"></figure>
 	</div>
@@ -33,8 +35,10 @@
 			<h1 class="Captions-title u-alignCenter">
 				<span class="Captions-title--line1 u-displayBlock u-sizeFull">Conheça as <strong>promoções</strong> da</span>
 				<em class="Captions-title--line2 u-displayBlock U-sizeFull u-marginTop--inter--half u-lineHeight0">
-					<span class="u-isHiddenVisually">VIGNOLI</span>
-					<figure class="Intro--nameVignoli u-displayInlineBlock"></figure>
+					<a href="<?php echo get_home_url(); ?>">
+						<span class="u-isHiddenVisually">VIGNOLI</span>
+						<figure class="Intro--nameVignoli u-displayInlineBlock"></figure>
+					</a>
 				</em>
 				<span class="Captions-title--line3 u-displayBlock u-sizeFull">Gere o seu <strong>cupom</strong> e aproveite!</span>
 			</h1>

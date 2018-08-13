@@ -312,3 +312,13 @@
 } //.SiteMain
 
 
+
+body.page{
+	& #register-form{
+		display: block;
+		& form{
+			/* padding-left: $h_spacing;
+			padding-right: $h_spacing; */
+		}
+		}
+}
