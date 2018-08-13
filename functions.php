@@ -205,6 +205,11 @@ echo'<svg style="position: absolute; width: 0; height: 0; overflow: hidden;" ver
 add_action( 'wp_footer', 'theme_footer_script' );
 
 
+// Less Admin Bar
+function my_function_admin_bar($content) {
+    return ( current_user_can("administrator") ) ? $content : false;
+}
+add_filter( 'show_admin_bar' , 'my_function_admin_bar');
 
 
 
@@ -628,7 +633,7 @@ class Custom_Post_Type_Image_Upload {
 	 * Set a more appropriate placeholder text for the New Book title field
 	 */
 	public function enter_title_here( $text, $post ) {
-		if ( $post->post_type == 'promocoes' ) return __( 'Título do Projeto' );
+		if ( $post->post_type == 'promocoes' ) return __( 'Título da promoção' );
 		return $text;
 	}
 	
@@ -668,9 +673,9 @@ class Custom_Post_Type_Image_Upload {
 		
 		?>
 
-		<table>
+		<table width="100%">
 		 <tr>
-            <td style="width: 100%;"><strong>Recorrência</strong></td>
+            <td width="30%"><strong>Recorrência</strong></td>
             <td>
                 <select id="tipoCase" style="width: 200px" name="multimidia_tipo" onchange="showdiv()">
                 <?php
@@ -706,44 +711,44 @@ class Custom_Post_Type_Image_Upload {
            <td style="width: 100%"><strong>Iframe ou Embed do vídeo</strong></td>
            <td><input type="text" size="80" name="multimidia_iframe_video" value="<?php //echo $iframe_video; ?>" placeholder="Cole o código HTML do iframe ou embed do vídeo" /></td>
        </tr> -->
-    	 <tr id="Div2" class="contentTipo Div1 Div2 Div3 Div4 Div5 Div6 Div7 Div8 Div9 Div10 Div11 Div12" style="display: none;">
-            <td style="width: 100%"><strong>Data Inicial</strong></td>
+    	 <tr id="Div2" class="contentTipo Div3" style="display: none;">
+            <td><strong>Data Inicial</strong></td>
             <td><input type="date" size="80" name="multimidia_value_line_1" value="<?php echo $value_line_1; ?>" /></td>
         </tr>
-         <tr id="Div2" class="contentTipo Div1 Div2 Div3 Div4 Div5 Div6 Div7 Div8 Div9 Div10 Div11 Div12" style="display: none;">
-            <td style="width: 100%"><strong>Data Final</strong></td>
+         <tr id="Div3" class="contentTipo Div3" style="display: none;">
+            <td><strong>Data Final</strong></td>
             <td><input type="date" size="80" name="multimidia_value_line_2" value="<?php echo $value_line_2; ?>" /></td>
         </tr>
 
-         <tr id="Div2" class="contentTipo Div1 Div2 Div3 Div4 Div5 Div6 Div7 Div8 Div9 Div10 Div11 Div12" style="display: none;">
-            <td style="width: 100%"><strong>Quantidade Total</strong></td>
+         <tr id="Div4" class="contentTipo Div1 Div2 Div3" style="display: none;">
+           <td><strong>Quantidade Total</strong></td>
             <td><input type="number" size="80" name="multimidia_value_line_3" value="<?php echo $value_line_3; ?>" /></td>
         </tr>
-         <tr id="Div2" class="contentTipo Div1 Div2 Div3 Div4 Div5 Div6 Div7 Div8 Div9 Div10 Div11 Div12" style="display: none;">
-            <td style="width: 100%"><strong>Quantidade Gerada</strong></td>
+         <tr id="Div5" class="contentTipo Div1 Div2 Div3" style="display: none;">
+            <td><strong>Quantidade Gerada</strong></td>
             <td><input type="number" size="80" name="multimidia_value_line_4" disabled="disabled" value="<?php echo $value_line_4; ?>" /></td>
         </tr>
 
-         <tr id="Div2" class="contentTipo Div1 Div2 Div3 Div4 Div5 Div6 Div7 Div8 Div9 Div10 Div11 Div12" style="display: none;">
-            <td style="width: 100%"><strong>Valor Normal</strong></td>
-            <td><input type="text" size="80" name="multimidia_value_line_5" value="<?php echo $value_line_5; ?>" /></td>
+         <tr id="Div6" class="contentTipo Div1 Div2 Div3" style="display: none;">
+           <td><strong>Valor Normal</strong></td>
+            <td><input type="number" size="80" name="multimidia_value_line_5" value="<?php echo $value_line_5; ?>" /></td>
         </tr>
-         <tr id="Div2" class="contentTipo Div1 Div2 Div3 Div4 Div5 Div6 Div7 Div8 Div9 Div10 Div11 Div12" style="display: none;">
-            <td style="width: 100%"><strong>Valor Promocional</strong></td>
-            <td><input type="text" size="80" name="multimidia_value_line_6" value="<?php echo $value_line_6; ?>" /></td>
+         <tr id="Div2" class="contentTipo Div1 Div2 Div3" style="display: none;">
+           <td><strong>Valor Promocional</strong></td>
+            <td><input type="number" size="80" name="multimidia_value_line_6" value="<?php echo $value_line_6; ?>" /></td>
         </tr>
 
-         <tr id="Div2" class="contentTipo Div1 Div2 Div3 Div4 Div5 Div6 Div7 Div8 Div9 Div10 Div11 Div12" style="display: none;">
-            <td style="width: 100%"><strong>Descrição</strong></td>
+         <tr id="Div7" class="contentTipo Div1 Div2 Div3" style="display: none;">
+           <td><strong>Descrição</strong></td>
             <td><textarea style="width: 100%" rows="7" name="multimidia_value_line_7" /><?php echo $value_line_7; ?></textarea></td>
         </tr>
-         <tr id="Div2" class="contentTipo Div1 Div2 Div3 Div4 Div5 Div6 Div7 Div8 Div9 Div10 Div11 Div12" style="display: none;">
-            <td style="width: 100%"><strong>Regras Gerais</strong></td>
+         <tr id="Div8" class="contentTipo Div1 Div2 Div3" style="display: none;">
+            <td><strong>Regras Gerais</strong></td>
             <td><textarea style="width: 100%" rows="7" name="multimidia_value_line_8" /><?php echo $value_line_8; ?></textarea></td>
         </tr>
 
-         <tr id="Div1" class="contentTipo Div1 Div2 Div3 Div4 Div5 Div6 Div7 Div8 Div9 Div10 Div11 Div12" style="display: none;">
-            <td style="width: 100%"><strong>Imagem de capa</strong></td>
+         <tr id="Div9" class="contentTipo Div1 Div2 Div3" style="display: none;">
+            <td><strong>Imagem de capa</strong></td>
             <td>
             	<img id="book_image" src="<?php echo $image_src ?>" style="max-width:280px;" />
 		<input type="hidden" name="upload_image_id" id="upload_image_id" value="<?php echo $image_id; ?>" />
@@ -1449,4 +1454,171 @@ function tiny_login_shortcode ($atts,$content=false) {
     'redirect' => false
   ), $atts);
   return get_tiny_login_form($atts['redirect']);
+}
+
+
+// Removendo itens do menu Admin
+// 
+function remove_menus(){
+  
+  remove_menu_page( 'index.php' );                  //Dashboard
+  //remove_menu_page( 'jetpack' );                    //Jetpack* 
+  //remove_menu_page( 'upload.php' );                 //Media
+  remove_menu_page( 'edit.php' );                     //Posts
+  remove_menu_page( 'post-new.php' );                 //Posts
+  remove_menu_page( 'edit.php?post_type=page');       //Pages
+  remove_menu_page( 'post-new.php?post_type=page');    //Pages
+  remove_menu_page( 'post-new.php?post_type=coupons'); //Cupons
+  remove_menu_page( 'edit-comments.php' );             //Comments
+  remove_menu_page( 'themes.php' );                    //Appearance
+  //	remove_menu_page( 'plugins.php' );                   //Plugins
+  //remove_menu_page( 'users.php' );                   //Users
+  remove_menu_page( 'tools.php' );                     //Tools
+  remove_menu_page( 'options-general.php' );           //Settings
+  
+}
+add_action( 'admin_menu', 'remove_menus' );
+
+
+// removendo links dos posts listados no admin
+add_filter( 'post_row_actions', 'remove_row_actions', 10, 1 );
+function remove_row_actions( $actions )
+{
+    if( get_post_type() === 'coupons' )
+        unset( $actions['edit'] );
+        unset( $actions['view'] );
+       //unset( $actions['trash'] );
+        unset( $actions['inline hide-if-no-js'] );
+    return $actions;
+}
+
+
+/**
+** Adiciona novos campos ao perfil de usuario
+** By wptotal.com.br
+**/
+ 
+function add_extra_fields_user_profile($user) {
+ 
+$user_phone = isset($_POST['user_phone']) ? $_POST['user_phone'] : get_the_author_meta('user_phone', $user->ID);
+$user_cpf = isset($_POST['user_cpf']) ? $_POST['user_cpf'] : get_the_author_meta('user_cpf', $user->ID);
+$user_gender = isset($_POST['user_gender']) ? $_POST['user_gender'] : get_the_author_meta('user_gender', $user->ID);
+?>
+ 
+<h3>Dados para Contato</h3>
+<table class="form-table">
+<tbody>
+<tr>
+<th><label for="user_phone">Telefone<span class="description">(obrigatório)</span></label></th>
+<td><input type="text" name="user_phone" id="user_phone" value="<?php echo esc_attr($user_phone) ?>" required="required" class="regular-text" /></td>
+</tr>
+<tr>
+<th><label for="user_endereco">CPF<span class="description">(obrigatório)</span></label></th>
+<td>
+<input type="text" name="user_cpf" id="user_cpf" value="<?php echo esc_attr($user_cpf) ?>" required="required" class="regular-text" />
+</td>
+</tr>
+<tr>
+<th><label for="user_cep">Gênero<span class="description">(obrigatório)</span></label></th>
+<td>
+ <select class="Form-input Form-input--select Form-select" name="user_gender" required="required" id="user_gender">
+    <option>Escolha</option>
+    <option value="masculino" <?php if(  esc_attr($user_gender) === 'masculino' ) { echo 'selected="selected"'; } ?>>Masculino</option>
+    <option value="feminino" <?php if(  esc_attr($user_gender) === 'feminino' ) { echo 'selected="selected"'; } ?>>Feminino</option>
+</select>
+</td>
+</tr>
+</tbody>
+</table>
+ 
+<?php
+}
+add_action('show_user_profile', 'add_extra_fields_user_profile');
+add_action('edit_user_profile', 'add_extra_fields_user_profile');
+
+
+/**
+** Grava os dados dos novos campos de usuários no banco de dados
+** Obs: É necessário validar os campos obrigatórios antes de gravar as alterações.
+** By wptotal.com.br
+**/
+function save_extra_fields_user_profile($user_id) {
+ 
+if (!current_user_can('edit_user', $user_id))
+return false;
+ 
+// Validando o campo obrigatorio
+if ( !isset( $_POST['user_phone'] ) || empty( $_POST['user_phone'] ) ) {
+return false;
+}
+ 
+update_usermeta($user_id, 'user_phone', $_POST['user_phone']);
+update_usermeta($user_id, 'user_cpf', $_POST['user_cpf']);
+update_usermeta($user_id, 'user_gender', $_POST['user_gender']);
+}
+add_action('personal_options_update', 'save_extra_fields_user_profile');
+add_action('edit_user_profile_update', 'save_extra_fields_user_profile');
+
+
+/**
+** Valida e Mostra a(s) mensagem(s) de erro(s) dos novos campos de usuário
+** By wptotal.com.br
+**/
+function validate_fields_in_user_profile(&$errors,$is_update) {
+ 
+if ( ! $is_update ) {
+return true;
+}
+ 
+// Somente exibe a mensagem de erro.
+if ( ! isset( $_POST['user_phone'] ) || empty( $_POST['user_phone'] ) ) {
+$errors->add( 'user_phone', '<strong>ERRO</strong>: Digite um telefone do usuário.' );
+}
+
+// Somente exibe a mensagem de erro.
+if ( ! isset( $_POST['user_cpf'] ) || empty( $_POST['user_cpf'] ) ) {
+$errors->add( 'user_cpf', '<strong>ERRO</strong>: Digite um número de CPF.' );
+}
+
+// Somente exibe a mensagem de erro.
+if ( ! isset( $_POST['user_gender'] ) || empty( $_POST['user_gender'] ) ) {
+$errors->add( 'user_gender', '<strong>ERRO</strong>: escolha um gênero.' );
+}
+
+}
+add_action( 'user_profile_update_errors', 'validate_fields_in_user_profile',10,2);
+
+// Customizando as colunas de listagem de usuários
+
+function new_contact_methods( $contactmethods ) {
+    $contactmethods['user_cpf'] = 'CPF';
+    return $contactmethods;
+}
+add_filter( 'user_contactmethods', 'new_contact_methods', 10, 1 );
+
+
+function new_modify_user_table( $column ) {
+    $column['user_cpf'] = 'CPF';
+    return $column;
+}
+add_filter( 'manage_users_columns', 'new_modify_user_table' );
+
+function new_modify_user_table_row( $val, $column_name, $user_id ) {
+    switch ($column_name) {
+        case 'user_cpf' :
+            return get_the_author_meta( 'user_cpf', $user_id );
+            break;
+        default:
+    }
+    return $val;
+}
+add_filter( 'manage_users_custom_column', 'new_modify_user_table_row', 10, 3 );
+
+add_filter('manage_users_columns','remove_users_columns');
+function remove_users_columns($column_headers) {
+    if (current_user_can('administrator')) {
+      unset($column_headers['posts']);
+    }
+ 
+    return $column_headers;
 }
