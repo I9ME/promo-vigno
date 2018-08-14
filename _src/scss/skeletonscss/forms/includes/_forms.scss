@@ -143,7 +143,8 @@ $mainSelector: '.Form';
 
 		& #{$mainSelector}-input[type="text"],
 		& #{$mainSelector}-input[type="tel"],
-		& #{$mainSelector}-input[type="email"]{
+		& #{$mainSelector}-input[type="email"],
+		& #{$mainSelector}-input--select{
 			height: $sizeColumns_px * 1.5;
 			
 		}

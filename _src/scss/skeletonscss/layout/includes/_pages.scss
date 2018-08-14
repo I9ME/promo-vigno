@@ -31,8 +31,19 @@
 	
 .u-hasSideBar{
 	&.SiteMain{
-		& .SiteMain-main{}
+		& .SiteMain-main{
+			&.is-border{
+				&.right{
+					border-bottom: 1px solid #DDD;
+				}
+			}
+		}
 		& .SiteMain-sideBar{
+			&.is-border{
+				&.left{
+					border-bottom: 1px solid #DDD;
+				}
+			}
 			& .Section{
 				&-header{
 					& i{
@@ -65,11 +76,39 @@
 			}
 		}
 		@media screen and (min-width: $break-sm){
+			
+
+
 			& .SiteMain-main{
-				margin-right: $h_spacing;
+				&.left{
+					margin-right: $h_spacing;
+					&.is-border{
+						border-right: 1px solid #DDD;
+					}
+				}
+				&.right{
+					margin-left: $h_spacing;
+					&.is-border{
+						border-left: 1px solid #DDD;
+					}
+				}
+				border-bottom: none !important;
 			}
-			& .SiteMain-sideBar{}
+			& .SiteMain-sideBar{
+				&.is-border{
+					&.left{
+						border-right: 1px solid #DDD;
+					}
+					&.right{
+						border-left: 1px solid #DDD;
+					}
+					border-bottom: none !important;
+				}
+				margin-bottom: 0px;
 			}
+
+
+		}
 	}
 
 }
@@ -93,6 +132,7 @@
 }
 
 .SiteMain{
+
 
 	
 
@@ -237,7 +277,15 @@
 	} //.SiteMain-main
 	@media screen and (min-width: $break-sm){
 
-
+		&--formRegister{
+			& .Form{
+				&-coll{
+					&:first-child{
+						padding-right: 15px;
+					}
+				}
+			}
+		}
 		&-main{
 		
 			//top: calc( -100vh + #{$header_height} + 25px);

@@ -1466,8 +1466,8 @@ function remove_menus(){
   //remove_menu_page( 'upload.php' );                 //Media
   remove_menu_page( 'edit.php' );                     //Posts
   remove_menu_page( 'post-new.php' );                 //Posts
-  remove_menu_page( 'edit.php?post_type=page');       //Pages
-  remove_menu_page( 'post-new.php?post_type=page');    //Pages
+  //remove_menu_page( 'edit.php?post_type=page');       //Pages
+  //remove_menu_page( 'post-new.php?post_type=page');    //Pages
   remove_menu_page( 'post-new.php?post_type=coupons'); //Cupons
   remove_menu_page( 'edit-comments.php' );             //Comments
   remove_menu_page( 'themes.php' );                    //Appearance
@@ -1622,3 +1622,14 @@ function remove_users_columns($column_headers) {
  
     return $column_headers;
 }
+
+
+/*
+add_action ('wp_loaded', 'my_custom_redirect');
+function my_custom_redirect() {
+    if ( isset( $_POST['action'] ) ) {
+        $redirect = get_permalink();
+        wp_redirect($redirect);
+        exit;
+    }
+}     */

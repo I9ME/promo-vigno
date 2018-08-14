@@ -1,4 +1,15 @@
 .Navigation{
+	&--sideBar{
+		& .Navigation{
+			&-items{
+				&-item{
+					& .NavigationLink{
+						color: $color_2;
+					}
+				}
+			}
+		}
+	}
 	&-controller{
 		&--prev{
 			
