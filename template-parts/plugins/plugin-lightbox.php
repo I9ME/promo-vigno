@@ -5,6 +5,11 @@
 				<use xlink:href="#iconClose"></use>
 			</svg>
 		</i>
+		<div id="loading" class="u-absoluteCenterMiddle u-zIndex10 u-alignCenter">
+			<h2>Carregando...</h2>
+			<br />
+			<img  src="<?php echo get_template_directory_uri(); ?>/assets/images/loading.gif" height="100" class="u-displayInlineBlock" alt="Carregando" />
+		</div>
 		<div class="Lightbox-window-content u-sizeFull u-overflowYauto u-positionRelative u-displayBlock">
 		</div>
 	</div>

@@ -4,10 +4,7 @@
 
 
 jQuery(function($) {
-	$(document).ready(function() {
-
-
-
+	$(document).ready(function() { 
 
 function LightboxClose() {
   //alert( "clicked" );
@@ -61,6 +58,15 @@ function LightboxCall(component) {
   jQuery('#Lightbox--container').removeClass('Lightbox--inactive');
   jQuery('#Lightbox--container').addClass('Lightbox--active');
   jQuery('.Lightbox-window-content').load( component );
+
+
+ $(function() {
+      setTimeout(function(){
+        //Inserindo imagens secudárias
+        $('#loading').fadeOut();
+       }, 2000);
+    });
+
 }
 //$( ".LightboxCall" ).on( "click", LightboxCall );
 
