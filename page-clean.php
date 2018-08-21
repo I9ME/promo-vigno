@@ -27,6 +27,63 @@
 	$title_promocao = get_the_title($id_promocao);
 	$user_id = get_current_user_id();
 
+	/*$meta_query = array(
+					'relation' => 'AND',
+            					
+						    array(
+						        'key'   => '_id_promo',
+						        'value' => $id_promocao,
+						        'compare' => '='
+						    ),
+						    array(
+						        'key'   => '_status_coupon',
+						        'value' => 1,
+						        'compare' => '>'
+						    )	
+				);*/
+
+
+			$coupons_Args = array( 
+					'post_type' => 'coupons',
+					'posts_per_page' => 1000,					
+					'meta_query' => array( 
+										array(
+										'relation' => 'AND',
+					            					
+											    array(
+											        'key'   => '_id_promo',
+											        'value' => $id_promocao,
+											        'compare' => '='
+											    ),
+											    array(
+											        'key'   => '_status_coupon',
+											        'value' => 1,
+											        'compare' => '>'
+											    ),	
+									),
+						 ),
+					'order' => 'ASC');
+			
+			
+			
+			$coupons_Loop = new WP_Query( $coupons_Args );
+			$quantGerado = $coupons_Loop->post_count;
+
+			//wp_reset_postdata();
+
+			$promo_args = array('post_type' => 'promocoes', 'p' => $id_promocao);
+
+			$newsLoop = new WP_Query( $promo_args );
+
+			if ( $newsLoop->have_posts() ): 
+
+				while ( $newsLoop->have_posts() ) : $newsLoop->the_post();
+					
+					$quantTotal = get_post_meta( get_the_ID(), 'value_line_3', true );
+
+					if( $quantTotal > $quantGerado ) {
+
+
 	?>
 	
 	<?php save_coupon_data( $code_coupon, $id_promocao, $user_id, $title_promocao ); ?>
@@ -106,7 +163,18 @@
 	</div>
 </section>
 <?php
-endwhile; else: ?>
+} else {
+?>
+<div class="u-displayBlock u-alignCenter u-paddingVertical--hzt">
+	<h2>Desculpe-nos, os CUPONS para esta promoção já estão esgotados!</h2>
+</div>
+
+<?php
+}
+endwhile; endif;
+
+endwhile; else: 
+?>
 <p>Desculpe, mas não foi encontrado nenhum conteúdo.</p>
 <?php endif; ?>
 

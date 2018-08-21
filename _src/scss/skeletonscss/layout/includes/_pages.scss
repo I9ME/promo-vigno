@@ -194,6 +194,11 @@
 								&--background{
 									background: $color_12;
 									color: $color_1;
+									&--inactive{
+										border: none !important;
+										background: $color_2;
+										color: $color_1;
+									}
 								}
 							&--border{
 								border-color: $color_12;

@@ -42,14 +42,42 @@
 		      	$data_inicial = get_post_meta( get_the_ID(), 'value_line_1', true );
 		      	$data_final = get_post_meta( get_the_ID(), 'value_line_2', true );
 		      	$quant_total = get_post_meta( get_the_ID(), 'value_line_3', true );
-		      	$quant_gerado = get_post_meta( get_the_ID(), 'value_line_4', true );
+		      	//$quant_gerado = get_post_meta( get_the_ID(), 'value_line_4', true );
 		      	$valor_normal = get_post_meta( get_the_ID(), 'value_line_5', true );
 		      	$valor_promocional = get_post_meta( get_the_ID(), 'value_line_6', true );
 		      	$descricao = get_post_meta( get_the_ID(), 'value_line_7', true );
 		      	$regras_gerais = get_post_meta( get_the_ID(), 'value_line_8', true );
 		      	
+
+		      	//Quantidade Gerada
+		      	$couponsArgs = array( 
+		      		'post_type' => 'coupons',
+		      		'meta_query' => array(
+
+		      						'relation' => 'AND',
+            					
+								    array(
+								        'key'   => '_id_promo',
+								        'value' => get_the_ID(),
+								        'compare' => '='
+								    ),
+								    array(
+								        'key'   => '_status_coupon',
+								        'value' => 1,
+								        'compare' => '>'
+								    )
+								),
+		      		'posts_per_page' => 1000,
+					'order' => 'ASC');
+				
+				$couponsLoop = new WP_Query( $couponsArgs );
+				$quant_gerado = $couponsLoop->post_count;
+						
+				wp_reset_postdata();
+
+
 		      	// Tratando "DIAS RESTANTES"
-		      	$today = get_the_date('Y-m-d');
+		      	$today = date('Y-m-d');
 
 			     $data_inicio = new DateTime($today);
 				 $data_fim = new DateTime($data_final);
@@ -120,11 +148,20 @@
 				<div class="Price Price--offer u-size12of24 u-alignCenter u-paddingHorizontal--vrt--inter--half--px">R$ <?php echo $valor_promocional ; ?></div>
 			</div>
 
+			
 			<div class="Section-subSection Section-subSection--cta u-displayFlex u-flexDirectionRow u-flexAlignItemsCenter u-flexJustifyContentCenter u-marginHorizontal--inter--half u-marginVertical--inter--px u-flexJustifyContentCenter">
-				<a class="Button Button--largeSize Button--border hover is-animating Button--background u-borderRadius5 u-alignCenter u-displayFlex u-flexAlignItemsCenter" href="<?php echo $link_cta; ?>">
-					GERAR CUPOM GRATUITAMENTE
-				</a>
+				<?php if( $quant_gerado >= $quant_total ) { ?>
+					<span class="Button Button--largeSize Button--border Button--background--inactive u-borderRadius5 u-alignCenter u-displayFlex u-flexAlignItemsCenter">
+						CUPONS ESGOTADOS
+					</span>
+				<?php } else { ?>
+					<a class="Button Button--largeSize Button--border hover is-animating Button--background u-borderRadius5 u-alignCenter u-displayFlex u-flexAlignItemsCenter" href="<?php echo $link_cta; ?>">
+						GERAR CUPOM GRATUITAMENTE
+					</a>
+				<?php } ?>
+
 			</div>
+
 		</div>
 	</section>
 	<section class="Section Section--dataBar u-paddingBottom--inter--half u-paddingTop--inter--half u-marginVertical">
@@ -151,8 +188,14 @@
 				<div class="Section-items-item-content Value u-paddingLeft u-positionRelative u-positionRelative u-displayBlock u-sizeAuto u-flex1">+ R$ <?php echo $economia; ?></div>
 			</li>
 			<li class="Section-items-item Section-items-item--quantidade u-marginHorizontal--inter--half u-displayFlex u-flexDirectionRow u-flexAlignItemsCenter u-size7of24 u-FlexFustifyContentSpaceBetween">
-				<h4 class="Section-items-item-title">QUANTIDADE <br />DISPONÍVEL:</h4>
-				<div class="Section-items-item-content Value u-paddingLeft u-positionRelative u-displayBlock u-sizeAuto u-flex1"><span class="Disponivel"><?php echo $quantidade; ?></span> de <span class="Total"><?php echo $quant_total ?></span> cupons</div>
+				<h4 class="Section-items-item-title">CUPONS <br />GERADOS:</h4>
+				<div class="Section-items-item-content Value u-paddingLeft u-positionRelative u-displayBlock u-sizeAuto u-flex1"><span class="Disponivel"><?php echo $quant_gerado; ?></span> de <span class="Total"><?php echo $quant_total ?></span> cupons</div>
+				<?php 
+					
+
+
+
+				 ?>
 			</li>
 		</ul>
 	</section>

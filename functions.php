@@ -18,7 +18,7 @@
 
 function skeleton_setup() {
 
-	$skeleton_version = '1.0';
+	
 
 	load_theme_textdomain( 'promo-vigno' );
 
@@ -71,6 +71,8 @@ add_action( 'after_setup_theme', 'skeleton_setup' );
  * Enqueue scripts and styles.
  */
 function skeleton_scripts() {
+
+	$skeleton_version = '1.0';
 
 	// Add custom fonts, used in the main stylesheet.
 
@@ -725,8 +727,43 @@ class Custom_Post_Type_Image_Upload {
             <td><input type="number" size="80" name="multimidia_value_line_3" value="<?php echo $value_line_3; ?>" /></td>
         </tr>
          <tr id="Div5" class="contentTipo Div1 Div2 Div3" style="display: none;">
-            <td><strong>Quantidade Gerada</strong></td>
-            <td><input type="number" size="80" name="multimidia_value_line_4" disabled="disabled" value="<?php echo $value_line_4; ?>" /></td>
+            
+            <td>
+            	<strong>Quantidade Gerada</strong>
+            </td>
+            <td>
+            	<?php 
+            		
+            		//Quantidade Gerada
+		      	$couponsArgs = array( 
+		      		'post_type' => 'coupons',
+		      		'meta_query' => array(
+
+		      						'relation' => 'AND',
+            					
+								    array(
+								        'key'   => '_id_promo',
+								        'value' => get_the_ID(),
+								        'compare' => '='
+								    ),
+								    array(
+								        'key'   => '_status_coupon',
+								        'value' => 1,
+								        'compare' => '>'
+								    )
+								),
+		      		'posts_per_page' => 1000,
+					'order' => 'ASC');
+				
+				$couponsLoop = new WP_Query( $couponsArgs );
+				$quant_gerado = $couponsLoop->post_count;
+
+				echo $quant_gerado;
+						
+				wp_reset_postdata();
+
+            	 ?>
+            </td>
         </tr>
 
          <tr id="Div6" class="contentTipo Div1 Div2 Div3" style="display: none;">
@@ -1470,11 +1507,11 @@ function remove_menus(){
   //remove_menu_page( 'post-new.php?post_type=page');    //Pages
   remove_menu_page( 'post-new.php?post_type=coupons'); //Cupons
   remove_menu_page( 'edit-comments.php' );             //Comments
-  remove_menu_page( 'themes.php' );                    //Appearance
+  //remove_menu_page( 'themes.php' );                    //Appearance
   //	remove_menu_page( 'plugins.php' );                   //Plugins
   //remove_menu_page( 'users.php' );                   //Users
   remove_menu_page( 'tools.php' );                     //Tools
-  remove_menu_page( 'options-general.php' );           //Settings
+  //remove_menu_page( 'options-general.php' );           //Settings
   
 }
 add_action( 'admin_menu', 'remove_menus' );

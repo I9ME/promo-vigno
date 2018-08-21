@@ -1596,6 +1596,12 @@ a {
   color: #FFFFFF;
 }
 
+.SiteMain-main .Article--promocoes .Section-subSection--cta .Button--background--inactive {
+  border: none !important;
+  background: #6e1b1d;
+  color: #FFFFFF;
+}
+
 .SiteMain-main .Article--promocoes .Section-subSection--cta .Button--border {
   border-color: #44752f;
 }

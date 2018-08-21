@@ -14,7 +14,7 @@ function LightboxClose() {
    $('#Lightbox--container').removeClass('Lightbox--active');
    $('#Lightbox--container').addClass('Lightbox--inactive');
    $('.Lightbox-window-content').html();
-    jQuery('body').css({'overflow-y':'auto'});
+   $('body').css({'overflow-y':'auto'});
 }
 
 $( ".LightboxClose" ).on( "click", LightboxClose );

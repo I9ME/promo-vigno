@@ -1,11 +1,28 @@
 <?php 
+
+$get_today = date('Y-m-d');
+
+$meta_query = array(
+	'key'   => 'value_line_2',
+		        'value' => $get_today,
+		        'compare' => '>=',	
+);
+
 			if(is_single()){
 				
 				$newsArgs = array( 'post_type' => 'promocoes', 'posts_per_page' => 3, 'post__not_in' => array(get_the_ID()), 'meta_key' => 'value_line_2', 'orderby' => 'meta_value_num', 'order' => 'ASC'); 
 			
 			} else {
 
-				$newsArgs = array( 'post_type' => 'promocoes', 'posts_per_page' => 9, 'meta_key' => 'value_line_2', 'orderby' => 'meta_value_num', 'order' => 'ASC');
+				$newsArgs = array( 
+					'post_type' => 'promocoes',
+					'posts_per_page' => 12,
+					 'meta_key' => 'value_line_2',
+					
+					'meta_query' => array( $meta_query ),
+
+					'orderby' => 'meta_value_num',
+					'order' => 'ASC');
 			
 			}
 			
@@ -40,6 +57,8 @@
 	      	$valor_promocional = get_post_meta( get_the_ID(), 'value_line_6', true );
 	      	$descricao = get_post_meta( get_the_ID(), 'value_line_7', true );
 	      	$regras_gerais = get_post_meta( get_the_ID(), 'value_line_8', true );
+
+	      	//echo $data_final;
   		?>
 	
 		<li class="Section-items-item u-marginBottom--inter u-flex u-flexDirectionColumn u-alignCenter u-size7of24">
