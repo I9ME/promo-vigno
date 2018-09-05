@@ -28,7 +28,7 @@
 				<span class="u-marginLeft--inter--half--px">contato@pizzavignoli.com.br</span></p>
 		</div> -->
 		<div class="Section-subSection Section-subSection--author u-size6of24 u-alignCenter">
-			<a href="https://www.i9me.com.br" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-i9me-web-design.png" title="I9ME WEB & DESIGN" alt="I9ME WEB & DESIGN" /></a>
+			<a href="https://www.i9me.com.br/?utm_source=siteCliente&utm_medium=logoI9ME&utm_campaign=vignoli_cupons" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-i9me-web-design.png" title="I9ME WEB & DESIGN" alt="I9ME WEB & DESIGN" /></a>
 		</div>
 	</div> <!-- Max Size Container -->
 </section>
